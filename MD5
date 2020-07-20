@@ -1,12 +1,12 @@
-59a68d7569838d2a97b0dae92191d87e *DESCRIPTION
+be0ac3b525a368eb8753412a741a25ab *DESCRIPTION
 e85e896b625848ef12393718cb7f7187 *NAMESPACE
-149881c3572242b4d9ab373af921539b *NEWS.md
+a7ed7d19e53f53a24ced1a7dbf288c97 *NEWS.md
 6db264e75bdabc1ca8a8fe7410303e2f *R/convert.R
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
 d86ba8a22feaa213c5c55bb9ded94cf9 *R/xml.R
-c0caa118b3abd6229f4a38d606334854 *README.md
+1efd3ff54c93af87bd52c6eede634908 *README.md
 6446db838d5fa556c6e52639bc546d63 *TODO
-6c35003d02d6a8d2d74458280683dab2 *build/partial.rdb
+a0779b66237d5d9588c8d92b128297d8 *build/partial.rdb
 12421bd7c923a215e4c1c8de550c0a2c *inst/bib/auto/latin1accents_utf8.el
 e45a933532c6549b416f4bb08e7da9bb *inst/bib/cyr_utf8.bib
 37935b38fa7699cea722fb1b10874e75 *inst/bib/ex0.biblatex
@@ -14,8 +14,8 @@ e45a933532c6549b416f4bb08e7da9bb *inst/bib/cyr_utf8.bib
 a69aa77dc99c56f2e7fdd5c53e627b30 *inst/bib/ex0.xml
 fd59816d1ead2b00268a17ecdacfd87e *inst/bib/latin1accents_utf8.bib
 6302e0bc47901f7e5b5e731ec545caae *man/bibConvert.Rd
-bb80a73173ddb440531d4dfb339fb11c *man/rbibutils-package.Rd
-e4b368ac38d6eba874b513b3933fd334 *src/adsout.c
+c1b1b1bdc8474a29e2e0bedecfe5803b *man/rbibutils-package.Rd
+2596f7253e61d522e0b0301c789b74d2 *src/adsout.c
 3cd97edabd4ef2518c13ebb1af4667b2 *src/adsout_journals.c
 33c3e0ffbdb848d45206164fde90eaf7 *src/any2xml.c
 cb021bd38a77883d36301def82ffe762 *src/args.c
@@ -76,7 +76,7 @@ c1ef33714eba0092cb94a03934351f31 *src/marc_auth.c
 f3d7c9a45fc02884bc1b708bd9043212 *src/marc_auth.h
 e9e1e1f3316e95bef23b36fbda4d92ae *src/medin.c
 0b4167403cd5a730c96efe1d63daeabd *src/modsin.c
-4419b06f2d7c401e1b152e87ed3ee14d *src/modsout.c
+a84e20d2886e53ec64bfc7ab37be06ba *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
 b75e58241abe61b207057e3cfe8af274 *src/modstypes.h
 0d077dcb6795e17d0170370769dcf40f *src/name.c

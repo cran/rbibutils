@@ -1,21 +1,21 @@
 Package: rbibutils
 Type: Package
 Title: Convert Between Bibliography Formats
-Version: 1.0.2
-Date: 2020-07-16
+Version: 1.0.3
+Date: 2020-07-20
 Authors@R: c( person(given = c("Georgi", "N."), family = "Boshnakov", 
-                     role = c("aut", "cre", "cph"), 	
+                     role = c("aut", "cre"), 	
                      email = "georgi.boshnakov@manchester.ac.uk",
 		     comment = "R port, modifications to bibutils' C code"
 		     ),
               person(given = "Chris", family = "Putman",
-                     role = c("aut", "cph"),
+                     role = "aut",
 		     comment = "src/*, author of the bibutils libraries, https://sourceforge.net/projects/bibutils/"),
               person(given = "Richard", family = "Mathar",
-                     role = c("ctb", "cph"),
+                     role = "ctb",
 		     comment = "src/addsout.c"),
               person(given = "Johannes", family = "Wilm",
-                     role = c("ctb", "cph"),
+                     role = "ctb",
 		     comment = "src/biblatexin.c, src/bltypes.c")
 		     )
 Description: Converts between a number of bibliography formats,
@@ -34,13 +34,13 @@ Encoding: UTF-8
 LazyData: true
 NeedsCompilation: yes
 Suggests: testthat
-Packaged: 2020-07-16 10:45:00 UTC; georgi
-Author: Georgi N. Boshnakov [aut, cre, cph] (R port, modifications to bibutils'
-    C code),
-  Chris Putman [aut, cph] (src/*, author of the bibutils libraries,
+Packaged: 2020-07-20 13:10:44 UTC; georgi
+Author: Georgi N. Boshnakov [aut, cre] (R port, modifications to bibutils' C
+    code),
+  Chris Putman [aut] (src/*, author of the bibutils libraries,
     https://sourceforge.net/projects/bibutils/),
-  Richard Mathar [ctb, cph] (src/addsout.c),
-  Johannes Wilm [ctb, cph] (src/biblatexin.c, src/bltypes.c)
+  Richard Mathar [ctb] (src/addsout.c),
+  Johannes Wilm [ctb] (src/biblatexin.c, src/bltypes.c)
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2020-07-18 08:50:02 UTC
+Date/Publication: 2020-07-21 00:00:03 UTC

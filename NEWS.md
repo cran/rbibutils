@@ -1,6 +1,24 @@
-# rbibutils 1.0.1 (CRAN)
+# rbibutils 1.0.3 (CRAN)
 
-- clarify the copyright holders in DESCRIPTION
+- fixed warnings from `clang` compilers on CRAN. (These were about tautology
+  `if` clauses in `src/adsout.c` and default argument promotion of the second
+  argument in a couple of invocations of `va_start` in `src/modsout.c`).
+
+- fixed typo's in the documentation.
+
+- updated the website.
+
+
+# rbibutils 1.0.2 (CRAN)
+
+- completed the copyright credits in DESCRIPTION (there were contributors not
+  mentioned anywhere except in the C source files they contributed).
+
+
+# rbibutils 1.0.1 
+
+- clarified the copyright holders in DESCRIPTION.
+
 
 # rbibutils 1.0.0 
 
