@@ -1,3 +1,12 @@
+# rbibutils 1.1.0
+
+- fixed processing of multiple person names in bibtex import.
+
+- mathematical formulas were wrongly exported without dollars in some cases.
+
+- stop printing some messages causing problems to Rdpack.
+
+
 # rbibutils 1.0.3 (CRAN)
 
 - fixed warnings from `clang` compilers on CRAN. (These were about tautology

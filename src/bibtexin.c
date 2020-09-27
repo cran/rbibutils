@@ -739,9 +739,11 @@ bibtex_person_tokenize( fields *bibin, int m, param *pm, slist *tokens )
 	int i, ok, status;
 	str *s;
 
+// REprintf("person!\n");
 	status = latex_tokenize( tokens, fields_value( bibin, m, FIELDS_STRP ) );
 	if ( status!=BIBL_OK ) return status;
 
+	
 	for ( i=0; i<tokens->n; ++i ) {
 
 		s = slist_str( tokens, i );
@@ -769,6 +771,7 @@ bibtex_person_add_names( fields *bibin, int m, slist *tokens )
 	int begin, end, ok, n, etal;
 
 	etal = name_findetal( tokens );
+// REprintf("person_add_names!\n");
 
 	begin = 0;
 	n = tokens->n - etal;
@@ -810,6 +813,7 @@ bibtexin_person( fields *bibin, int m, param *pm )
 {
 	int status, match = 0;
 	slist tokens;
+// REprintf("bibtexin_person!\n");
 
 	status = bibtex_matches_asis_or_corps( bibin, m, pm, &match );
 	if ( status!=BIBL_OK || match==1 ) return status;
@@ -848,21 +852,37 @@ bibtexin_cleanref( fields *bibin, param *pm )
                             in a different encoding; 
                        TODO: test side effects of doing this.
 		   delay names from undergoing any parsing */
-		if ( is_name_tag( tag ) ) return BIBL_OK;
-		
-		value = fields_value( bibin, i, FIELDS_STRP_NOUSE );
-		if ( str_is_empty( value ) ) continue;
+		/* 2020-09-26: but names need parsing since there may be more than one!
+                       Commenting out to process properly names fields
 
+                       TODO: return to this and check again!
+                            I commented this out because of encodings - do tests!
+                       Amendment: run the nex two lines  but only if tag is not names tag
+                        (actually, moved them to the else part)
+		 */
+		// if ( is_name_tag( tag ) ) return BIBL_OK;
+		// if ( !is_name_tag( tag ) ){
+		//    value = fields_value( bibin, i, FIELDS_STRP_NOUSE );
+		//    if ( str_is_empty( value ) ) continue;
+
+		// }
 		if ( is_name_tag( tag ) ) {
 			status = bibtexin_person( bibin, i, pm );
+			// REprintf("Ach!");
 			if ( status!=BIBL_OK ) goto out;
 
 			fstatus = intlist_add( &toremove, i );
 			if ( fstatus!=INTLIST_OK ) { status = BIBL_ERR_MEMERR; goto out; }
+			// REprintf("Uuch!");
+			status = BIBL_OK; // Georgi
+			goto out;
 		}
 
 		else {
-			status = bibtex_cleanvalue( value );
+		        value = fields_value( bibin, i, FIELDS_STRP_NOUSE );
+		        if ( str_is_empty( value ) ) continue;
+
+		        status = bibtex_cleanvalue( value );
 			if ( status!=BIBL_OK ) goto out;
 		}
 
