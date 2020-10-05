@@ -1,10 +1,34 @@
-# rbibutils 1.1.0
+# rbibutils 1.3
+
+- reverted a change in v1.2 which caused trouble with some latex characters.
+
+- trim white space in cite keys and some others to avoid getting cite keys such
+  as "abcd\n" (possible if the comma after the key is on a new line.
+
+- new function `readBib` for importing a bibtex file.
+
+
+# rbibutils 1.2.1
+
+- improve processing of URL field when converting to bibentry.
+
+
+# rbibutils 1.2
+
+- fixed inBook processing.
+
+- fixed encoding bug introduced in v1.1.
+
+- fixed misterous loss of `$`s and curly braces in certain circumstances.
+
+
+# rbibutils 1.1.0 (CRAN)
 
 - fixed processing of multiple person names in bibtex import.
 
 - mathematical formulas were wrongly exported without dollars in some cases.
 
-- stop printing some messages causing problems to Rdpack.
+- stopped printing some messages causing problems to Rdpack.
 
 
 # rbibutils 1.0.3 (CRAN)

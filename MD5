@@ -1,12 +1,11 @@
-aeac1d5378e5f4817c6fc5d44667c12a *DESCRIPTION
-e85e896b625848ef12393718cb7f7187 *NAMESPACE
-f149b659c432e135402210ba95d779de *NEWS.md
-6db264e75bdabc1ca8a8fe7410303e2f *R/convert.R
+66e3a79eaf6f8f887db2d09d3a203d36 *DESCRIPTION
+d3805e029d4cf0c17b211e05d7c0e87f *NAMESPACE
+7ab69705d5e47a3bd1853092698544fc *NEWS.md
+8ac7acfc5669c94136ac863e6badb168 *R/convert.R
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
-d86ba8a22feaa213c5c55bb9ded94cf9 *R/xml.R
-1efd3ff54c93af87bd52c6eede634908 *README.md
+f38f0f907557be322413deb779bc1ed4 *R/xml.R
 205aec00669d585f2ae5f1b8e5d828f3 *TODO
-9853facd59058c216f3b0b34b7751da4 *build/partial.rdb
+93e83a27a4bc9389fe480e87568861a5 *build/partial.rdb
 12421bd7c923a215e4c1c8de550c0a2c *inst/bib/auto/latin1accents_utf8.el
 e45a933532c6549b416f4bb08e7da9bb *inst/bib/cyr_utf8.bib
 37935b38fa7699cea722fb1b10874e75 *inst/bib/ex0.biblatex
@@ -15,6 +14,7 @@ a69aa77dc99c56f2e7fdd5c53e627b30 *inst/bib/ex0.xml
 fd59816d1ead2b00268a17ecdacfd87e *inst/bib/latin1accents_utf8.bib
 6302e0bc47901f7e5b5e731ec545caae *man/bibConvert.Rd
 c1b1b1bdc8474a29e2e0bedecfe5803b *man/rbibutils-package.Rd
+39fa75b993d599f8654b83047d433e6c *man/readBib.Rd
 2596f7253e61d522e0b0301c789b74d2 *src/adsout.c
 3cd97edabd4ef2518c13ebb1af4667b2 *src/adsout_journals.c
 33c3e0ffbdb848d45206164fde90eaf7 *src/any2xml.c
@@ -29,7 +29,7 @@ df0eddd7350e0fc624cc984cc8a5b40c *src/bibl.c
 e6d4b72269948f24362b836554b3f6e7 *src/biblatexout.c
 9304c2434e08641ec4fd2e48cc573315 *src/bibprog.c
 5de5cb310681d3520fb37e622e2ac203 *src/bibprog.h
-5728fad9d487bff11d4fa2668e8e839e *src/bibtexin.c
+2a47545b7d8c980c07f47710e9e962c0 *src/bibtexin.c
 4334bee616f575ce9a8ed9713545be1f *src/bibtexout.c
 94e57c399e9256808087c7e6760fb92d *src/bibtextypes.c
 cc7b9acc82cc45dfafc856006907d717 *src/bibutils.c
@@ -109,7 +109,7 @@ a5a1533417903fbdb3ed3c41265c1031 *src/title.h
 195865d359290135776ffb111562d0e9 *src/tomods.h
 45d233f56fdb24e068cc98d682da208a *src/type.c
 dda56f371bdec736b08cbb3070f1b4bb *src/type.h
-eacdae63878d5bd5cb2596ad43047a28 *src/unicode.c
+05baa46165ca6c411a22a1126673fa89 *src/unicode.c
 a1ebcbbf3961f333f0121e8382330355 *src/unicode.h
 8ba295aa852ffe04ac84b205c166d63c *src/url.c
 e638b808b4c4ecc1f3113598ede1901d *src/url.h
