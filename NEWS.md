@@ -1,11 +1,25 @@
-# rbibutils 1.3
+# rbibutils 1.4 (CRAN)
+
+- new function `writeBib` for writing bibtex files.
+
+- fixed erroneous processing of PhD thesis bib entries with some values of field
+  `type`.  (reported by Kisung You for `Rdpack`, issue #17)
+
+- fixed a compiler warning about a pointer differing in
+  signedness from the expected type (reported by Patrice Kiener).
+
+- somehow `README.md` went missing in v1.3, now reinstated.
+
+
+# rbibutils 1.3 (CRAN)
 
 - reverted a change in v1.2 which caused trouble with some latex characters.
 
-- trim white space in cite keys and some others to avoid getting cite keys such
-  as "abcd\n" (possible if the comma after the key is on a new line.
+- trimmed white space in cite keys and some others to avoid getting cite keys
+  containing the newline character (possible if the comma after the key is on a
+  new line).
 
-- new function `readBib` for importing a bibtex file.
+- new function `readBib` for importing bibtex files.
 
 
 # rbibutils 1.2.1
