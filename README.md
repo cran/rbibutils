@@ -1,5 +1,6 @@
 [![CRANStatusBadge](http://www.r-pkg.org/badges/version/rbibutils)](https://cran.r-project.org/package=rbibutils)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/rbibutils)](https://www.r-pkg.org/pkg/rbibutils)
+[![R build status](https://github.com/GeoBosh/rbibutils/workflows/R-CMD-check/badge.svg)](https://github.com/GeoBosh/rbibutils/actions)
 
 Convert bibliography files between various formats, including BibTeX, BibLaTeX
 and Bibentry. Includes an R port of the `bibutils` utilities.
@@ -30,6 +31,10 @@ the result to a file. All formats, except for `rds` (see below) are plain text
 files. `bibConvert()` tries to infer the input/output formats from the file
 extentions. There is ambiguity however about `bib` files, which can be either
 Bibtex or Biblatex. Bibtex is assumed if the format is not specified.
+
+`readBib()` and `writeBib()` import/export BiBTeX files.  `readBibentry()` and
+`writeBibentry()` import/export `R` source files in which the references are represented by
+`bibentry()` calls. These functions are wrappers around `bibConvert`.
 
 The default encoding is UTF-8 for both, input and output. All encodings handled
 by `bibutils` are supported. Besides UTF-8, these include `gb18030` (Chinese),

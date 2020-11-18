@@ -2,8 +2,9 @@
  * intlist.c
  *
  * Copyright (c) Chris Putnam 2007-2020
+ * Copyright (c) Georgi N. Boshnakov 2020
  *
- * Version 1/12/2017
+ * Version 1/12/2017 (GNB: updated 2020 - changed random generation)
  *
  * Source code released under the GPL version 2
  *
@@ -12,8 +13,11 @@
  */
 #include <stdlib.h>
 #include <assert.h>
+#include <math.h>
+
 
 #include <R.h>
+#include <Rversion.h>
 
 #include "intlist.h"
 
@@ -408,14 +412,20 @@ intlist_sort( intlist *il )
 	qsort( il->data, il->n, sizeof( int ), intcomp );
 }
 
-/* Returns random integer in the range [floor,ceil) */
+/* Returns random integer in the range [lower,upper) */
 static int
-randomint( int floor, int ceil )
+randomint( int lower, int upper )
 {
-	int len = ceil - floor;
-	// Georgi was: return floor + rand() % len;
+	int len = upper - lower;
+	// Georgi was: return lower + rand() % len;
 	// TODO: test comprehensively
-	return floor + ( (int) R_unif_index((double) RAND_MAX) ) % len;
+	// 2020-11-15 was: return lower + ( (int) R_unif_index((double) RAND_MAX) ) % len;
+	//    fix due to Henrik Sloot (#1)
+#if defined(R_VERSION) && R_VERSION >= R_Version(3, 4, 0)
+	return lower + ( (int) R_unif_index((double) len));
+#else
+	return  lower + ( (int) floor(len * unif_rand()));
+#endif
 }
 
 static void

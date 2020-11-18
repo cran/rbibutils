@@ -205,9 +205,8 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                   stop("converting a file from format ", informat, " not available yet")
                   )
 
-#browser()
-##print(argv_xml2)    
-argv_xml2 <- as.character(argv_xml2)    
+    ## output
+    argv_xml2 <- as.character(argv_xml2)    
     switch(outformat,
            xml = {
                wrk_out = list(xmlfile)
@@ -227,16 +226,32 @@ argv_xml2 <- as.character(argv_xml2)
                # },
            R = ,
            r = ,
+           Rstyle = , # 2020-11-08 new:
+                      # as print(be, style = "R"), currently this is returned by the C code
            bibentry = {
-               modsi.obj <- read_mods(xmlfile)
-               bm <- bibmods(modsi.obj)
-               bibe <- toBibentry(bm)
-               if(outformat == "bibentry"){
-                   saveRDS(bibe, outfile)
-               }else{ # r
-                   writeBibentry(bibe, outfile)
-               }
-               wrk_out <- list(bib = bibe, nref_out = length(bibe))
+               ## TODO: !!! the variants for bibentry should probably be specified by
+               ##       options, not different main level types.
+               
+                    #  wrk_out <- .C(C_xml2bib_main, argc_xml2, argv_xml2, outfile, "xml2bib")
+               prg <- paste0("xml2", "bibentry") # "bibentryC"
+               argv_xml2[1] <- prg
+               wrk_out <- .C(C_xml2any_main, as.integer(argc_xml2), argv_xml2, outfile, nref_out = n_xml2)
+   #browser()
+
+               if(outformat != "Rstyle"){
+                   # bibe <- source(outfile)$value # TODO: is the return value of source()
+                   #                               #       'official'? (no, it isn't)
+                   # names(bibe) <- unlist(bibe$key)
+
+                   bibe <- readBibentry(outfile)
+                   
+                   if(outformat == "bibentry"){
+                       saveRDS(bibe, outfile)
+                   }else{ # R   TODO: (2020-11-07) now it could just return the outfile!!!
+                       writeBibentry(bibe, outfile, style = "loose")
+                   }
+                   wrk_out <- list(bib = bibe, nref_out = length(bibe))
+               }# else - do nothing if outformat == "Rstyle")
            },
            {
                ## default
@@ -255,79 +270,4 @@ argv_xml2 <- as.character(argv_xml2)
        wrk <- c(wrk, list(bib = wrk_out$bib))
     
     wrk
-}
-
-readBibentry <- function(file){
-    expr <- parse(file, encoding = "UTF-8") # NOTE: fixed encoding for now
-
-    fu <- function(){
-        .allval <- vector(length(expr), mode = "list")
-        for(i in seq_along(expr)){
-            .val <- eval(expr[i])
-            .allval[[i]] <- if(is.null(.val))
-                               NA
-                           else
-                               .val
-        }
-        .bibflag <- sapply(.val, function(x) inherits(x, "bibentry"))
-        .wrk <- .allval[.bibflag]
-        .vars <- mget(ls())
-        if(length(.vars) > 0){
-            .bibflag <- sapply(.vars, function(x) inherits(x, "bibentry"))
-            .vars <- .vars[.bibflag]
-            .wrk <- c(.vars, .wrk)
-        }
-        
-        do.call("c", .wrk)
-    }
-    
-    fu()
-}
-
-writeBibentry <- function(be, file){
-    con <- file(file, "wt")
-    on.exit(close(con))
-
-
-    sink(con)
-    # on.exit(sink(), add = TRUE)
-
-    for(i in seq_along(be)){
-        print(be[i], style = "R")
-        cat("\n")
-    }
-    sink()
-    NULL
-}
-
-
-readBib <- function(file, encoding){
-    rds <- tempfile(fileext = ".rds")
-    on.exit(unlink(rds))
-
-    if(encoding == "UTF-8")
-        encoding = "utf8"
-    
-    be <- bibConvert(file, rds, "bibtex",
-            "bibentry", encoding = c(encoding, "utf8"), tex = "no_latex")
-    res <- readRDS(rds)
-
-    res
-}
-
-writeBib <- function(object, con = stdout(), append = FALSE){
-    if(!inherits(object, "bibentry"))
-        stop("'object' must inherit from class 'bibentry'.")
-    
-    mode <- if(append) "a" else "w+"
-
-    if (is.character(con)) {
-        con <- file(con, open = mode)
-        on.exit(close(con))
-    }
-
-    lines <- toBibtex(object)
-    writeLines(lines, con)
-             
-    invisible(object)
 }

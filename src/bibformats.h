@@ -2,6 +2,7 @@
  * bibformats.h
  *
  * Copyright (c) Chris Putnam 2007-2019
+ * Copyright (c) Georgi N. Boshnakov 2020
  *
  * Source code released under the GPL version 2
  *
@@ -33,4 +34,9 @@ int risout_initparams     ( param *pm, const char *progname );
 int wordin_initparams     ( param *pm, const char *progname );
 int wordout_initparams    ( param *pm, const char *progname );
 
+int bibentryout_initparams( param *pm, const char *progname ); //Georgi
 #endif
+
+
+
+

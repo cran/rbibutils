@@ -1,9 +1,28 @@
+# rbibutils 2.0
+
+- there is no longer (unintended) dependence on R >= 3.4. This was because of
+  the use of `R_unif_index`. Report and fix due to Henrik Sloot (#1).
+
+- completely reimplemented the conversion to `bibentry` - now this is done
+  entirely in `C` and it now has the same speed as the conversions to other
+  bibliograthy formats.
+
+- removed `xml2` from the imports - it is no longer needed now that the
+  conversion to bibentry is done in `C`.
+
+- new functions `readBibentry` and `writeBibentry` for reading from and writing
+  bibentries to R source files.
+
+- now errors when reading bibentry files are turned into warnings with suitable
+  messages.
+
+
 # rbibutils 1.4 (CRAN)
 
 - new function `writeBib` for writing bibtex files.
 
 - fixed erroneous processing of PhD thesis bib entries with some values of field
-  `type`.  (reported by Kisung You for `Rdpack`, issue #17)
+  `type`.  (reported by Kisung You for GeoBosh/Rdpack#17)
 
 - fixed a compiler warning about a pointer differing in
   signedness from the expected type (reported by Patrice Kiener).
@@ -24,7 +43,7 @@
 
 # rbibutils 1.2.1
 
-- improve processing of URL field when converting to bibentry.
+- improved processing of URL field when converting to bibentry.
 
 
 # rbibutils 1.2
