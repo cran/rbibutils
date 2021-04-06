@@ -1,4 +1,26 @@
-# rbibutils 2.0
+# rbibutils 2.1 (CRAN)
+
+- `readBib` can now convert bibtex files directly (i.e., without first
+  converting to XML intermediate) to bibentry R objects. This can be requested
+  by setting the new argument `direct` to `TRUE`.
+
+- `readBib` gets argument `texChars` to control whether or not to convert TeX
+  sequences representing characters (such as accented Latin characters) to
+  normal characters in the output encoding. There is an option also to convert
+  charaters to the corresponding TeX sequences.
+
+- `readBib` now accepts encodings as for `bibConvert`.
+
+- `readBib` now processes field `key` in bibtex files. (This field is optional,
+  used by some bibtex styles for sorting.)
+
+- bug fixes and improvements.
+
+- removed field `LazyData` from DESCRIPTION as there is no data directory
+  (and R-devel now flags it with a NOTE).
+  
+
+# rbibutils 2.0 (CRAN)
 
 - there is no longer (unintended) dependence on R >= 3.4. This was because of
   the use of `R_unif_index`. Report and fix due to Henrik Sloot (#1).

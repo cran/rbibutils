@@ -1,8 +1,8 @@
 Package: rbibutils
 Type: Package
 Title: Convert Between Bibliography Formats
-Version: 2.0
-Date: 2020-11-18
+Version: 2.1
+Date: 2021-04-05
 Authors@R: c( person(given = c("Georgi", "N."), family = "Boshnakov", 
                      role = c("aut", "cre"), 	
                      email = "georgi.boshnakov@manchester.ac.uk",
@@ -32,9 +32,8 @@ Depends: R (>= 2.10)
 Imports: utils, tools
 Suggests: testthat
 Encoding: UTF-8
-LazyData: true
 NeedsCompilation: yes
-Packaged: 2020-11-18 07:48:40 UTC; georgi
+Packaged: 2021-04-05 15:15:05 UTC; georgi
 Author: Georgi N. Boshnakov [aut, cre] (R port, modifications to bibutils' C
     code),
   Chris Putman [aut] (src/*, author of the bibutils libraries,
@@ -43,4 +42,4 @@ Author: Georgi N. Boshnakov [aut, cre] (R port, modifications to bibutils' C
   Johannes Wilm [ctb] (src/biblatexin.c, src/bltypes.c)
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2020-11-18 18:40:02 UTC
+Date/Publication: 2021-04-06 08:00:06 UTC
