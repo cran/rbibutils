@@ -1,14 +1,14 @@
-4a78508e98991f049a710b8917c51347 *DESCRIPTION
+80e259277202b20359c8383107b57c2b *DESCRIPTION
 9ce972392574192229e3a6dd289aaaa6 *NAMESPACE
-df6becedd7579d343abdb5ec3e391d24 *NEWS.md
+998593f1e8df5c57aaebdb7b9001a82a *NEWS.md
 4412d9c32dffb217293ef91ab9eaa2f2 *R/bib.R
 10d66a05eeb8a5209f8097f6bb54ff3f *R/bibentry.R
 faf5cfe666dda2b254673e667389ee21 *R/convert.R
 92d1aed76a48f3a942b267606856c7f3 *R/import.R
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
-470bfed68994a3a0817f7193fc21718e *README.md
+6b754f305bf2ed0301818513a2d0ee2a *README.md
 bbf5fec3935d4ee8f92a8fbd3202b6cc *TODO
-4eb9112a776445b3a151333bccd7b932 *build/partial.rdb
+75a8924f616042473f30a9e4a4c73957 *build/partial.rdb
 734901490cd1dfce39cd7a4e52d2f452 *inst/REFERENCES.bib
 ec688f352600b93cdb275c85ab3d91f0 *inst/auto/REFERENCES.el
 12421bd7c923a215e4c1c8de550c0a2c *inst/bib/auto/latin1accents_utf8.el
@@ -138,7 +138,7 @@ bde8c5930c6f6066984e96e981450611 *src/xml.c
 b554c79771481e07759fd5cfb37120f0 *src/xml2any.c
 826d6ae3da07f7f1a4c6a8a389e890af *src/xml_encoding.c
 a40712ff6837fc20b6179daaa2ea4a38 *src/xml_encoding.h
-7101c43e3afa968a5facf02db3defe49 *tests/testthat.R
+c57a525278e06d978ab26690d8148606 *tests/testthat.R
 4e0ff45832d4d2e881b9a48ff1ff11c2 *tests/testthat/bibacc_1.rds
 75d73ec11a900a615d1f95094ef8d3e2 *tests/testthat/bibacc_2.rds
 b1d499e4eee04359715943cbc4c372d4 *tests/testthat/bibacc_3.rds
