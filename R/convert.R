@@ -4,8 +4,11 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
     if(missing(informat)){
         ext <- tools::file_ext(infile)
         informat <- switch(ext,
-                           xml      = "xml",
-                           
+                           xml      = {
+                               message("\n assuming input format is MOD XML intermediate.\n")
+                               "xml"
+                           },
+
                            bib      = "bibtex",
                            bibtex   = "bibtex",
                            biblatex = "biblatex",
@@ -17,11 +20,14 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                            med      = "med",  
                            nbib     = "nbib",  
                            ris      = "ris",
+                           wordbib  = "wordbib",
 
                            "R"      = ,
                            r        = "r",
                            rds      = "bibentry",
 
+                           ads      = "ads",
+                           
                            ## default
                            stop("Can't infer input format, please use arg. informat")
                            )
@@ -39,7 +45,7 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                            ads      = "ads",
                            copac    = "copac",
                            end      = "end",  
-                           endx     = "end",  # is there to "endx"?
+                           endx     = "endx",  # is there to "endx"?
                            isi      = "isi",  
                            med      = "med",  
                            nbib     = "nbib",  
@@ -85,7 +91,9 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
             switch(tex_op,
                    no_latex = { # accents to letters
                        argv_2xml <- c(argv_2xml, "-nl")
-                       argv_xml2 <- c(argv_xml2, "-nl")
+                       ## TODO: this is relevant for xml2xxx only when xxx is a latex related format
+                       ##       for now inserting a line in the C code to ignore it without warning
+                       argv_xml2 <- c(argv_xml2, "-nl") 
                    },
                    uppercase = {
                        argv_xml2 <- c(argv_xml2, "-U")
@@ -116,8 +124,14 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                        ## print(argv_xml2)
                    },
                    oxml = {argv_2xml <- c(argv_2xml, "-o", options[j])},
-                   h = {argv_2xml <- c(argv_2xml, "-h")},
-                   v = {argv_2xml <- c(argv_2xml, "-v")},
+                   h = {
+                       argv_2xml <- c(argv_2xml, "-h")
+                       argv_xml2 <- c(argv_xml2, "-h")
+                   },
+                   v = {
+                       argv_2xml <- c(argv_2xml, "-v")
+                       argv_xml2 <- c(argv_xml2, "-v")
+                   },
                    a = {argv_2xml <- c(argv_2xml, "-a")},
                    s = {argv_2xml <- c(argv_2xml, "-s")},
                    u = {argv_2xml <- c(argv_2xml, "-u")},
@@ -126,12 +140,24 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                    x = {argv_2xml <- c(argv_2xml, "-x")},
                    nl = {
                        argv_2xml <- c(argv_2xml, "-nl")
-                       argv_xml2 <- c(argv_xml2, "-nl")},
+                       argv_xml2 <- c(argv_xml2, "-nl")
+                   },
                    d = { argv_2xml <- c(argv_2xml, "-d") },
                    c = {argv_2xml <- c(argv_2xml, "-c", options[j])},
                    ## as = {argv_2xml <- c(argv_2xml, "-as", options[j])},
                    nt = {argv_2xml <- c(argv_2xml, "-nt")},
-                   verbose = {argv_2xml <- c(argv_2xml, "--verbose")},
+                   verbose = {
+                       argv_2xml <- c(argv_2xml, "--verbose")
+                       argv_xml2 <- c(argv_xml2, "--verbose")
+                   },
+                   nb = {
+                       ## TODO: However, switch or no switch, on linux the BOM is not added.
+                       ##       But BOM is inserted on windows without the switch.
+                       ## Currently I have no idea why linux is special in this respect.
+                       argv_xml2 <- c(argv_xml2, "-nb")
+                       ## for 2xml the switch in bibutils is -un
+                       argv_2xml <- c(argv_2xml, "-un")
+                   },
                    debug = {
                        argv_2xml <- c(argv_2xml, "--debug")
                        argv_xml2 <- c(argv_xml2, "--debug")
@@ -154,6 +180,10 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
     n_2xml <- as.double(0) # for the number of references (double
     n_xml2 <- as.double(0) 
 
+    ## earlier versions accepted "word" (in the "C" code)
+    if(informat == "word")
+        informat <- "wordbib"
+    
     wrk <- switch(informat,
                   xml      = {
                       wrk_in <- list(xmlfile)
@@ -167,6 +197,7 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                   biblatex = ,
                   ads      = ,
                   copac    = ,
+                  ebi      = ,
                   end      = ,
                   endx     = ,
                   isi      = ,
@@ -174,6 +205,7 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
                   nbib     = ,
                   ris      = ,
                   wordbib  = {
+#print("Hello!")                      
                       prg <- paste0(informat, "2xml")
                       argv_2xml[1] <- prg
                       wrk_in <- .C(C_any2xml_main, argc_2xml, argv_2xml, xmlfile, nref_in = n_2xml)
@@ -257,11 +289,20 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
            {
                ## default
                    # stop("outformat ", outformat, " not supported by bibConvert yet")
+
+               ## earlier versions accepted "word" (in the "C" code)
+               if(outformat == "word")
+                   outformat <- "wordbib"
+               
                prg <- paste0("xml2", outformat)
                argv_xml2[1] <- prg
                wrk_out <- .C(C_xml2any_main, argc_xml2, argv_xml2, outfile, nref_out = n_xml2)
            }
            )
+
+    if(is.numeric(wrk_out$nref_out) && wrk_out$nref_out == 0)
+        message("\nno references to output.\n",
+                "if this is wrong, consider using argument 'informat'.\n")
     
     wrk <- list("infile" = infile, "outfile" = outfile,
                 nref_in = wrk_in$nref_in,

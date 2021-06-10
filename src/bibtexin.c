@@ -67,6 +67,11 @@ bibtexin_initparams( param *pm, const char *progname )
 	slist_init( &(pm->asis) );
 	slist_init( &(pm->corps) );
 
+ 	// TODO: these probably should be made parameters, as the others above;
+	//       note that 'find' and 'replace' work in tandem, so both need to be cleared.
+	slist_free( &find );
+	slist_free( &replace );
+
 	if ( !progname ) pm->progname = NULL;
 	else {
 		pm->progname = strdup( progname );
@@ -177,6 +182,8 @@ process_bibtextype( const char *p, str *type )
 	return p;
 }
 
+char *dummy_id = "dummyid";
+
 static const char *
 process_bibtexid( const char *p, str *id )
 {
@@ -199,7 +206,8 @@ process_bibtexid( const char *p, str *id )
 			str_strcpy( id, &tmp );
 		}
 	} else {
-		str_empty( id );
+	  // Georgi was: str_empty( id );
+	  str_strcpyc( id, dummy_id );
 	}
 
 	str_free( &tmp );
@@ -627,6 +635,7 @@ out:
 /* bibtexin_processf()
  *
  * Handle '@STRING', '@reftype', and ignore '@COMMENT'
+ *                                   Georgi: also ignore @PREAMBLE
  */
 static int
 bibtexin_processf( fields *bibin, const char *data, const char *filename, long nref, param *pm )
@@ -640,7 +649,10 @@ bibtexin_processf( fields *bibin, const char *data, const char *filename, long n
 	if ( !strncasecmp( data, "@STRING", 7 ) ) {
 		process_string( data+7, &currloc );
 		return 0;
-	} else if ( !strncasecmp( data, "@COMMENT", 8 ) ) {
+	} else if ( !strncasecmp( data, "@COMMENT", 8 ) || !strncasecmp( data, "@PREAMBLE", 9 )) {
+	  // Georgi: added @PREAMBLE
+	  //    todo: It could make sense to keep it for output to bibtex (or TeX related)
+	  
 		/* Not sure if these are real Bibtex, but not references */
 		return 0;
 	} else {

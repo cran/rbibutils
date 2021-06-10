@@ -3,4 +3,4 @@ if(require("testthat")) {
     library(rbibutils)
     test_check("rbibutils")
 } else
-    warning("package 'testthat' required for 'rbibutils\'' tests")
+    warning("package 'testthat' required for the tests in 'rbibutils'")

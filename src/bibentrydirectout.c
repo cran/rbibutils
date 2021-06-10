@@ -97,166 +97,164 @@ enum {
 	NUM_TYPES
 };
 
-static int
-bibentrydirectout_type( fields *in, const char *progname, const char *filename, unsigned long refnum )
-{
-	match_type genre_matches[] = {
-		{ "periodical",             TYPE_ARTICLE,       LEVEL_ANY  },
-		{ "academic journal",       TYPE_ARTICLE,       LEVEL_ANY  },
-		{ "magazine",               TYPE_ARTICLE,       LEVEL_ANY  },
-		{ "newspaper",              TYPE_ARTICLE,       LEVEL_ANY  },
-		{ "article",                TYPE_ARTICLE,       LEVEL_ANY  },
-		{ "instruction",            TYPE_MANUAL,        LEVEL_ANY  },
-		{ "book",                   TYPE_BOOK,          LEVEL_MAIN },
-		{ "book",                   TYPE_INBOOK,        LEVEL_ANY  },
-		{ "book chapter",           TYPE_INBOOK,        LEVEL_ANY  },
-		{ "unpublished",            TYPE_UNPUBLISHED,   LEVEL_ANY  },
-		{ "manuscript",             TYPE_UNPUBLISHED,   LEVEL_ANY  },
-		{ "conference publication", TYPE_PROCEEDINGS,   LEVEL_MAIN },
-		{ "conference publication", TYPE_INPROCEEDINGS, LEVEL_ANY  },
-		{ "collection",             TYPE_COLLECTION,    LEVEL_MAIN },
-		{ "collection",             TYPE_INCOLLECTION,  LEVEL_ANY  },
-		{ "report",                 TYPE_REPORT,        LEVEL_ANY  },
-		{ "technical report",       TYPE_REPORT,        LEVEL_ANY  },
-		{ "Masters thesis",         TYPE_MASTERSTHESIS, LEVEL_ANY  },
-		{ "Diploma thesis",         TYPE_DIPLOMATHESIS, LEVEL_ANY  },
-		{ "Ph.D. thesis",           TYPE_PHDTHESIS,     LEVEL_ANY  },
-		{ "Licentiate thesis",      TYPE_PHDTHESIS,     LEVEL_ANY  },
-		{ "thesis",                 TYPE_PHDTHESIS,     LEVEL_ANY  },
-		{ "electronic",             TYPE_ELECTRONIC,    LEVEL_ANY  },
-		{ "miscellaneous",          TYPE_MISC,          LEVEL_ANY  },
-	};
-	int ngenre_matches = sizeof( genre_matches ) / sizeof( genre_matches[0] );
-
-	match_type resource_matches[] = {
-		{ "moving image",           TYPE_ELECTRONIC,    LEVEL_ANY  },
-		{ "software, multimedia",   TYPE_ELECTRONIC,    LEVEL_ANY  },
-	};
-	int nresource_matches = sizeof( resource_matches ) /sizeof( resource_matches[0] );
-
-	match_type issuance_matches[] = {
-		{ "monographic",            TYPE_BOOK,          LEVEL_MAIN },
-		{ "monographic",            TYPE_INBOOK,        LEVEL_ANY  },
-	};
-	int nissuance_matches = sizeof( issuance_matches ) / sizeof( issuance_matches[0] );
-
-	int type, maxlevel, n;
-
-	type = type_from_mods_hints( in, TYPE_FROM_GENRE, genre_matches, ngenre_matches, TYPE_UNKNOWN );
-	if ( type==TYPE_UNKNOWN ) type = type_from_mods_hints( in, TYPE_FROM_RESOURCE, resource_matches, nresource_matches, TYPE_UNKNOWN );
-	if ( type==TYPE_UNKNOWN ) type = type_from_mods_hints( in, TYPE_FROM_ISSUANCE, issuance_matches, nissuance_matches, TYPE_UNKNOWN );
-
-	/* default to TYPE_MISC */
-	if ( type==TYPE_UNKNOWN ) {
-		maxlevel = fields_maxlevel( in );
-		if ( maxlevel > 0 ) type = TYPE_MISC;
-		else {
-			if ( progname ) REprintf( "%s: ", progname );
-			REprintf( "Cannot identify TYPE in reference %lu ", refnum+1 );
-			n = fields_find( in, "REFNUM", LEVEL_ANY );
-			if ( n!=FIELDS_NOTFOUND ) 
-				REprintf( " %s", (char*) fields_value( in, n, FIELDS_CHRP ) );
-			REprintf( " (defaulting to @Misc)\n" );
-			type = TYPE_MISC;
-		}
-	}
-	return type;
-}
-
+// static int
+// bibentrydirectout_type( fields *in, const char *progname, const char *filename, unsigned long refnum )
+// {
+// 	match_type genre_matches[] = {
+// 		{ "periodical",             TYPE_ARTICLE,       LEVEL_ANY  },
+// 		{ "academic journal",       TYPE_ARTICLE,       LEVEL_ANY  },
+// 		{ "magazine",               TYPE_ARTICLE,       LEVEL_ANY  },
+// 		{ "newspaper",              TYPE_ARTICLE,       LEVEL_ANY  },
+// 		{ "article",                TYPE_ARTICLE,       LEVEL_ANY  },
+// 		{ "instruction",            TYPE_MANUAL,        LEVEL_ANY  },
+// 		{ "book",                   TYPE_BOOK,          LEVEL_MAIN },
+// 		{ "book",                   TYPE_INBOOK,        LEVEL_ANY  },
+// 		{ "book chapter",           TYPE_INBOOK,        LEVEL_ANY  },
+// 		{ "unpublished",            TYPE_UNPUBLISHED,   LEVEL_ANY  },
+// 		{ "manuscript",             TYPE_UNPUBLISHED,   LEVEL_ANY  },
+// 		{ "conference publication", TYPE_PROCEEDINGS,   LEVEL_MAIN },
+// 		{ "conference publication", TYPE_INPROCEEDINGS, LEVEL_ANY  },
+// 		{ "collection",             TYPE_COLLECTION,    LEVEL_MAIN },
+// 		{ "collection",             TYPE_INCOLLECTION,  LEVEL_ANY  },
+// 		{ "report",                 TYPE_REPORT,        LEVEL_ANY  },
+// 		{ "technical report",       TYPE_REPORT,        LEVEL_ANY  },
+// 		{ "Masters thesis",         TYPE_MASTERSTHESIS, LEVEL_ANY  },
+// 		{ "Diploma thesis",         TYPE_DIPLOMATHESIS, LEVEL_ANY  },
+// 		{ "Ph.D. thesis",           TYPE_PHDTHESIS,     LEVEL_ANY  },
+// 		{ "Licentiate thesis",      TYPE_PHDTHESIS,     LEVEL_ANY  },
+// 		{ "thesis",                 TYPE_PHDTHESIS,     LEVEL_ANY  },
+// 		{ "electronic",             TYPE_ELECTRONIC,    LEVEL_ANY  },
+// 		{ "miscellaneous",          TYPE_MISC,          LEVEL_ANY  },
+// 	};
+// 	int ngenre_matches = sizeof( genre_matches ) / sizeof( genre_matches[0] );
+// 
+// 	match_type resource_matches[] = {
+// 		{ "moving image",           TYPE_ELECTRONIC,    LEVEL_ANY  },
+// 		{ "software, multimedia",   TYPE_ELECTRONIC,    LEVEL_ANY  },
+// 	};
+// 	int nresource_matches = sizeof( resource_matches ) /sizeof( resource_matches[0] );
+// 
+// 	match_type issuance_matches[] = {
+// 		{ "monographic",            TYPE_BOOK,          LEVEL_MAIN },
+// 		{ "monographic",            TYPE_INBOOK,        LEVEL_ANY  },
+// 	};
+// 	int nissuance_matches = sizeof( issuance_matches ) / sizeof( issuance_matches[0] );
+// 
+// 	int type, maxlevel, n;
+// 
+// 	type = type_from_mods_hints( in, TYPE_FROM_GENRE, genre_matches, ngenre_matches, TYPE_UNKNOWN );
+// 	if ( type==TYPE_UNKNOWN ) type = type_from_mods_hints( in, TYPE_FROM_RESOURCE, resource_matches, nresource_matches, TYPE_UNKNOWN );
+// 	if ( type==TYPE_UNKNOWN ) type = type_from_mods_hints( in, TYPE_FROM_ISSUANCE, issuance_matches, nissuance_matches, TYPE_UNKNOWN );
+// 
+// 	/* default to TYPE_MISC */
+// 	if ( type==TYPE_UNKNOWN ) {
+// 		maxlevel = fields_maxlevel( in );
+// 		if ( maxlevel > 0 ) type = TYPE_MISC;
+// 		else {
+// 			if ( progname ) REprintf( "%s: ", progname );
+// 			REprintf( "Cannot identify TYPE in reference %lu ", refnum+1 );
+// 			n = fields_find( in, "REFNUM", LEVEL_ANY );
+// 			if ( n!=FIELDS_NOTFOUND ) 
+// 				REprintf( " %s", (char*) fields_value( in, n, FIELDS_CHRP ) );
+// 			REprintf( " (defaulting to @Misc)\n" );
+// 			type = TYPE_MISC;
+// 		}
+// 	}
+// 	return type;
+// }
 
 // Georgi
 //     TODO: consolidate with append_type, 
-static int
-is_TechReport_type( int type )
-{
-	char *typenames[ NUM_TYPES ] = {
-		[ TYPE_ARTICLE       ] = "Article",
-		[ TYPE_INBOOK        ] = "Inbook",
-		[ TYPE_PROCEEDINGS   ] = "Proceedings",
-		[ TYPE_INPROCEEDINGS ] = "InProceedings",
-		[ TYPE_BOOK          ] = "Book",
-		[ TYPE_PHDTHESIS     ] = "PhdThesis",
-		[ TYPE_MASTERSTHESIS ] = "MastersThesis",
-		[ TYPE_DIPLOMATHESIS ] = "MastersThesis",
-		[ TYPE_REPORT        ] = "TechReport",
-		[ TYPE_MANUAL        ] = "Manual",
-		[ TYPE_COLLECTION    ] = "Collection",
-		[ TYPE_INCOLLECTION  ] = "InCollection",
-		[ TYPE_UNPUBLISHED   ] = "Unpublished",
-		[ TYPE_ELECTRONIC    ] = "Electronic",
-		[ TYPE_MISC          ] = "Misc",
-	};
-	
-	return( !strcmp(typenames[ type ], "TechReport") );
-}
+// static int
+// is_TechReport_type( int type )
+// {
+// 	char *typenames[ NUM_TYPES ] = {
+// 		[ TYPE_ARTICLE       ] = "Article",
+// 		[ TYPE_INBOOK        ] = "Inbook",
+// 		[ TYPE_PROCEEDINGS   ] = "Proceedings",
+// 		[ TYPE_INPROCEEDINGS ] = "InProceedings",
+// 		[ TYPE_BOOK          ] = "Book",
+// 		[ TYPE_PHDTHESIS     ] = "PhdThesis",
+// 		[ TYPE_MASTERSTHESIS ] = "MastersThesis",
+// 		[ TYPE_DIPLOMATHESIS ] = "MastersThesis",
+// 		[ TYPE_REPORT        ] = "TechReport",
+// 		[ TYPE_MANUAL        ] = "Manual",
+// 		[ TYPE_COLLECTION    ] = "Collection",
+// 		[ TYPE_INCOLLECTION  ] = "InCollection",
+// 		[ TYPE_UNPUBLISHED   ] = "Unpublished",
+// 		[ TYPE_ELECTRONIC    ] = "Electronic",
+// 		[ TYPE_MISC          ] = "Misc",
+// 	};
+// 	
+// 	return( !strcmp(typenames[ type ], "TechReport") );
+// }
 
+// static void
+// append_type( int type, fields *out, int *status )
+// {
+// 	char *typenames[ NUM_TYPES ] = {
+// 		[ TYPE_ARTICLE       ] = "Article",
+// 		[ TYPE_INBOOK        ] = "Inbook",
+// 		[ TYPE_PROCEEDINGS   ] = "Proceedings",
+// 		[ TYPE_INPROCEEDINGS ] = "InProceedings",
+// 		[ TYPE_BOOK          ] = "Book",
+// 		[ TYPE_PHDTHESIS     ] = "PhdThesis",
+// 		[ TYPE_MASTERSTHESIS ] = "MastersThesis",
+// 		[ TYPE_DIPLOMATHESIS ] = "MastersThesis",
+// 		[ TYPE_REPORT        ] = "TechReport",
+// 		[ TYPE_MANUAL        ] = "Manual",
+// 		[ TYPE_COLLECTION    ] = "Collection",
+// 		[ TYPE_INCOLLECTION  ] = "InCollection",
+// 		[ TYPE_UNPUBLISHED   ] = "Unpublished",
+// 		[ TYPE_ELECTRONIC    ] = "Electronic",
+// 		[ TYPE_MISC          ] = "Misc",
+// 	};
+// 	int fstatus;
+// 	char *s;
+// 
+// 	if ( type < 0 || type >= NUM_TYPES ) type = TYPE_MISC;
+// 	s = typenames[ type ];
+// 
+// 	fstatus = fields_add( out, "TYPE", s, LEVEL_MAIN );
+// 	if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
+// }
 
-static void
-append_type( int type, fields *out, int *status )
-{
-	char *typenames[ NUM_TYPES ] = {
-		[ TYPE_ARTICLE       ] = "Article",
-		[ TYPE_INBOOK        ] = "Inbook",
-		[ TYPE_PROCEEDINGS   ] = "Proceedings",
-		[ TYPE_INPROCEEDINGS ] = "InProceedings",
-		[ TYPE_BOOK          ] = "Book",
-		[ TYPE_PHDTHESIS     ] = "PhdThesis",
-		[ TYPE_MASTERSTHESIS ] = "MastersThesis",
-		[ TYPE_DIPLOMATHESIS ] = "MastersThesis",
-		[ TYPE_REPORT        ] = "TechReport",
-		[ TYPE_MANUAL        ] = "Manual",
-		[ TYPE_COLLECTION    ] = "Collection",
-		[ TYPE_INCOLLECTION  ] = "InCollection",
-		[ TYPE_UNPUBLISHED   ] = "Unpublished",
-		[ TYPE_ELECTRONIC    ] = "Electronic",
-		[ TYPE_MISC          ] = "Misc",
-	};
-	int fstatus;
-	char *s;
-
-	if ( type < 0 || type >= NUM_TYPES ) type = TYPE_MISC;
-	s = typenames[ type ];
-
-	fstatus = fields_add( out, "TYPE", s, LEVEL_MAIN );
-	if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
-}
-
-static void
-append_citekey( fields *in, fields *out, int format_opts, int *status )
-{
-	int n, fstatus;
-	str s;
-	char *p;
-
-	n = fields_find( in, "REFNUM", LEVEL_ANY );
-	if ( ( format_opts & BIBL_FORMAT_BIBOUT_DROPKEY ) || n==FIELDS_NOTFOUND ) {
-		fstatus = fields_add( out, "REFNUM", "", LEVEL_MAIN );
-		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
-	}
-
-	else {
-		str_init( &s );
-		p = fields_value( in, n, FIELDS_CHRP );
-		while ( p && *p && *p!='|' ) {
-			if ( format_opts & BIBL_FORMAT_BIBOUT_STRICTKEY ) {
-				if ( isdigit((unsigned char)*p) || (*p>='A' && *p<='Z') ||
-				     (*p>='a' && *p<='z' ) ) {
-					str_addchar( &s, *p );
-				}
-			}
-			else {
-				if ( *p!=' ' && *p!='\t' ) {
-					str_addchar( &s, *p );
-				}
-			}
-			p++;
-		}
-		if ( str_memerr( &s ) )  { *status = BIBL_ERR_MEMERR; str_free( &s ); return; }
-		fstatus = fields_add( out, "REFNUM", str_cstr( &s ), LEVEL_MAIN );
-		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
-		str_free( &s );
-	}
-}
+// static void
+// append_citekey( fields *in, fields *out, int format_opts, int *status )
+// {
+// 	int n, fstatus;
+// 	str s;
+// 	char *p;
+// 
+// 	n = fields_find( in, "REFNUM", LEVEL_ANY );
+// 	if ( ( format_opts & BIBL_FORMAT_BIBOUT_DROPKEY ) || n==FIELDS_NOTFOUND ) {
+// 		fstatus = fields_add( out, "REFNUM", "", LEVEL_MAIN );
+// 		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
+// 	}
+// 
+// 	else {
+// 		str_init( &s );
+// 		p = fields_value( in, n, FIELDS_CHRP );
+// 		while ( p && *p && *p!='|' ) {
+// 			if ( format_opts & BIBL_FORMAT_BIBOUT_STRICTKEY ) {
+// 				if ( isdigit((unsigned char)*p) || (*p>='A' && *p<='Z') ||
+// 				     (*p>='a' && *p<='z' ) ) {
+// 					str_addchar( &s, *p );
+// 				}
+// 			}
+// 			else {
+// 				if ( *p!=' ' && *p!='\t' ) {
+// 					str_addchar( &s, *p );
+// 				}
+// 			}
+// 			p++;
+// 		}
+// 		if ( str_memerr( &s ) )  { *status = BIBL_ERR_MEMERR; str_free( &s ); return; }
+// 		fstatus = fields_add( out, "REFNUM", str_cstr( &s ), LEVEL_MAIN );
+// 		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
+// 		str_free( &s );
+// 	}
+// }
 
 static void
 append_simple( fields *in, char *intag, char *outtag, fields *out, int *status )
@@ -269,6 +267,30 @@ append_simple( fields *in, char *intag, char *outtag, fields *out, int *status )
 		fstatus = fields_add( out, outtag, fields_value( in, n, FIELDS_CHRP ), LEVEL_MAIN );
 		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
 	}
+}
+
+static void
+append_simple_quoted_tag( fields *in, char *intag, char *outtag, fields *out, int *status )
+{
+	int n, fstatus;
+	str qtag;
+
+	str_init( &qtag);
+ 
+	n = fields_find( in, intag, LEVEL_ANY );
+	if ( n!=FIELDS_NOTFOUND ) {
+		fields_set_used( in, n );
+
+		str_strcatc( &qtag, "\"" );
+		str_strcatc( &qtag, outtag );
+		str_strcatc( &qtag, "\"" );
+		
+		fstatus = fields_add( out, qtag.data, fields_value( in, n, FIELDS_CHRP ), LEVEL_MAIN );
+		if ( fstatus!=FIELDS_OK ) *status = BIBL_ERR_MEMERR;
+	}
+
+	str_free( &qtag );
+
 }
 
 static void
@@ -625,13 +647,13 @@ append_titles( fields *in, int type, fields *out, int format_opts, int *status )
 		*status = append_title( in, "series", 1, out, format_opts );
 		if ( *status!=BIBL_OK ) return;
 		*status = append_title( in, "series", 2, out, format_opts );
+		if ( *status!=BIBL_OK ) return;
 
 		// // (2020-12-27) added by Georgi
 		// // TODO: not sure about this it always sets booktitle same as title.
 		// //      Logical but iridia uses booktitle for abbreviated title
 		// //      this looks like iridia convention; COMMENTING OUT
 		// //
-		// if ( *status!=BIBL_OK ) return;
 		// *status = append_title( in, "booktitle", LEVEL_ANY, out, format_opts );
 
 		break;
@@ -908,7 +930,7 @@ append_key( fields *in, char *intag, char *outtag, fields *out, int *status )
 {
         int n, fstatus;
         
-        char *tag, *value;
+        char  *value; // *tag
         str data;
         
         str_init( &data );
@@ -947,6 +969,8 @@ bibentrydirectout_assemble( fields *in, fields *out, param *pm, unsigned long re
 	// Determine type 
 	//   type = bibentrydirectout_type( in, pm->progname, "", refnum );
 	//
+	// Georgi: the chunk below replaces the above call (type = ...)
+	//         TODO: needs further work
 	
 	int n, fstatus;
 	char *fld_val;
@@ -1005,16 +1029,29 @@ bibentrydirectout_assemble( fields *in, fields *out, param *pm, unsigned long re
 		else if ( !strcmp( fld_val, "Misc" ) ) {           
 		  type = 15;
 		}
+		// TODO: temporary!!
+		else if ( !strcmp( fld_val, "online" ) ) {     // patch!!      
+		  type = 15;
+		}
 		else {
 		  type = 0; // unknown
 		}
 
-		// REprintf("kiki: fld_val=%s\n", fld_val);
-
-		fstatus = fields_add( out, "bibtype", fld_val, LEVEL_MAIN );
-		if ( fstatus!=FIELDS_OK ) status = BIBL_ERR_MEMERR;
+		// REprintf("(bibentrydirectout_assemble): fld_val=%s\n", fld_val);
+		//  REprintf("type = %d\n\n", type);
+		
+		if ( strcmp( fld_val, "online" ) )
+		  fstatus = fields_add( out, "bibtype", fld_val, LEVEL_MAIN );
+		else
+		  // this is temporary patch!
+		  fstatus = fields_add( out, "bibtype", "Misc", LEVEL_MAIN );
+	} else{
+	  type = 15; // default to Misc; TODO: issue a message?
+	  fstatus = fields_add( out, "bibtype", "Misc", LEVEL_MAIN );
 	}
+	if ( fstatus!=FIELDS_OK ) status = BIBL_ERR_MEMERR;
 
+	// Georgi: end of 'determine type' (the above also outputs it, so the line below is commented out
 	
 	// append_type        ( type, out, &status );
 	append_simple        ( in, "REFNUM", "refnum", out, &status );
@@ -1069,6 +1106,7 @@ bibentrydirectout_assemble( fields *in, fields *out, param *pm, unsigned long re
 	
 	int i, f_len;
 	char * fld_tag;
+
 	f_len = fields_num( in );
 	for ( i=0; i<f_len; ++i ) {
 	  if( !fields_used(in, i) ){
@@ -1079,7 +1117,7 @@ bibentrydirectout_assemble( fields *in, fields *out, param *pm, unsigned long re
 	    //   str[i] = tolower(str[i]);
 	    // }
 
-	    append_simple( in, fld_tag, fld_tag, out, &status );
+	    append_simple_quoted_tag( in, fld_tag, fld_tag, out, &status );
 	  }
 	}
 
@@ -1094,7 +1132,7 @@ bibentrydirectout_assemble( fields *in, fields *out, param *pm, unsigned long re
 static int
 bibentrydirectout_write( fields *out, FILE *fp, param *pm, unsigned long refnum )
 {
-	int i, j, len, nquotes, format_opts = pm->format_opts;
+  int i, j, len; // nquotes, format_opts = pm->format_opts;
 	char *tag, *value, ch;
 	int not_person, not_other; // Georgi
 
@@ -1125,7 +1163,7 @@ bibentrydirectout_write( fields *out, FILE *fp, param *pm, unsigned long refnum 
 
 	/* ...rest of the references */
 	for ( j=2; j<out->n; ++j ) {
-		nquotes = 0;
+	        // nquotes = 0;
 		tag   = ( char * ) fields_tag( out, j, FIELDS_CHRP );
 		value = ( char * ) fields_value( out, j, FIELDS_CHRP );
 		fprintf( fp, ",\n      " );

@@ -1,12 +1,12 @@
 Package: rbibutils
 Type: Package
-Title: Convert Between Bibliography Formats
-Version: 2.1.1
-Date: 2021-04-27
+Title: Read 'Bibtex' Files and Convert Between Bibliography Formats
+Version: 2.2
+Date: 2021-06-10
 Authors@R: c( person(given = c("Georgi", "N."), family = "Boshnakov", 
                      role = c("aut", "cre"), 	
                      email = "georgi.boshnakov@manchester.ac.uk",
-		     comment = "R port, R code, modifications to bibutils' C code, conversion to Bibentry (R and C code)"
+		     comment = "R port, R code, new C code and modifications to bibutils' C code, conversion to Bibentry (R and C code)"
 		     ),
               person(given = "Chris", family = "Putman",
                      role = "aut",
@@ -18,8 +18,8 @@ Authors@R: c( person(given = c("Georgi", "N."), family = "Boshnakov",
                      role = "ctb",
 		     comment = "src/biblatexin.c, src/bltypes.c")
 		     )
-Description: Read and write 'BibTeX' files. Convert between bibliography
-    formats, including 'BibTeX', 'BibLaTeX', EndNote, and 'Bibentry'.
+Description: Read and write 'Bibtex' files. Convert between bibliography
+    formats, including 'Bibtex', 'Biblatex', 'Endnote', and 'Bibentry'.
     Includes a port of the 'bibutils' utilities by Chris Putnam
     <https://sourceforge.net/projects/bibutils/>. Supports all
     bibliography formats and character encodings implemented in
@@ -33,13 +33,14 @@ Imports: utils, tools
 Suggests: testthat
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2021-04-27 14:50:42 UTC; georgi
-Author: Georgi N. Boshnakov [aut, cre] (R port, R code, modifications to
-    bibutils' C code, conversion to Bibentry (R and C code)),
+Packaged: 2021-06-10 08:29:48 UTC; georgi
+Author: Georgi N. Boshnakov [aut, cre] (R port, R code, new C code and
+    modifications to bibutils' C code, conversion to Bibentry (R and C
+    code)),
   Chris Putman [aut] (src/*, author of the bibutils libraries,
     https://sourceforge.net/projects/bibutils/),
   Richard Mathar [ctb] (src/addsout.c),
   Johannes Wilm [ctb] (src/biblatexin.c, src/bltypes.c)
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2021-04-28 05:30:02 UTC
+Date/Publication: 2021-06-10 10:40:01 UTC

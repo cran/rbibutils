@@ -160,6 +160,8 @@ bibentryout_type( fields *in, const char *progname, const char *filename, unsign
 			type = TYPE_MISC;
 		}
 	}
+
+	// REprintf("type = %d\n\n", type);
 	return type;
 }
 
@@ -908,7 +910,7 @@ append_key( fields *in, char *intag, char *outtag, fields *out, int *status )
 {
         int n, fstatus;
         
-        char *tag, *value;
+        char *value;  // *tag
         str data;
         
         str_init( &data );
@@ -1003,7 +1005,7 @@ bibentryout_assemble( fields *in, fields *out, param *pm, unsigned long refnum )
 static int
 bibentryout_write( fields *out, FILE *fp, param *pm, unsigned long refnum )
 {
-	int i, j, len, nquotes, format_opts = pm->format_opts;
+  int i, j, len; // nquotes, format_opts = pm->format_opts;
 	char *tag, *value, ch;
 	int not_person; // Georgi
 
@@ -1034,7 +1036,7 @@ bibentryout_write( fields *out, FILE *fp, param *pm, unsigned long refnum )
 
 	/* ...rest of the references */
 	for ( j=2; j<out->n; ++j ) {
-		nquotes = 0;
+	        // nquotes = 0;
 		tag   = ( char * ) fields_tag( out, j, FIELDS_CHRP );
 		value = ( char * ) fields_value( out, j, FIELDS_CHRP );
 		fprintf( fp, ",\n      " );
