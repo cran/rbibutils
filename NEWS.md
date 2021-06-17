@@ -1,4 +1,9 @@
-# rbibutils 2.2
+# rbibutils 2.2.1 (CRAN)
+
+- fixed problems revealed by valgrind.
+
+
+# rbibutils 2.2 (CRAN)
 
 - new convenience function `charToBib` takes input from a character vector
   rather than a file. By default it assumes that the input is in `bibtex` format

@@ -1,6 +1,6 @@
-54de8014ed05b69e4160a1edb816214d *DESCRIPTION
+8799f1344a91b6db9e00ddbbf8115e1e *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-aafb4bab2f9d14c24735f87dc2b4b6a1 *NEWS.md
+5b8629cb24d84704bbf6026683afeca8 *NEWS.md
 9c42971403b6ce650b1bc142b1fd8007 *R/bib.R
 1bb0e802aeed55a1b9eaa4cd59d746ec *R/bibentry.R
 6d06a9d2b36c9f1d25b8afb924c85c45 *R/convert.R
@@ -9,7 +9,7 @@ aafb4bab2f9d14c24735f87dc2b4b6a1 *NEWS.md
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
 1fbd194970080c6675e086990bf2c6c8 *README.md
 bbf5fec3935d4ee8f92a8fbd3202b6cc *TODO
-6afcbdc8559c3e597ac54699f5dc7963 *build/partial.rdb
+d45ca1903ee40c76b77de25bbd415244 *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -25,6 +25,7 @@ ea2042be66ddf4a98c0b9fce6975181c *inst/bib/FsinR_Pudil1994.bib
 6f178e2b6f9fde12fd723c1f656f70a2 *inst/bib/Putnam1992.end
 e52c4e774a07799933f1d5cd6caec3c1 *inst/bib/Rcore.bib
 cbacdfffefc2570b8074cc7e760a4eed *inst/bib/Rcore_with_abbr.bib
+5ba5c07869823715719c46dbcc471943 *inst/bib/bib_from_medin.bib
 de7d913cfbb3c1dfc7e45076e3f622df *inst/bib/cort_genest2017.bib
 e45a933532c6549b416f4bb08e7da9bb *inst/bib/cyr_utf8.bib
 a1fb48f2684d6fb1ce4ea57c1a1cd26f *inst/bib/eaf_GruFon2009.bib
@@ -58,8 +59,8 @@ b4f0eeb6c98d7f86f1db833d8787adc4 *src/adsout_journals.c
 b5907aa5d39906a513ceca860e758fa8 *src/any2xml.c
 cb021bd38a77883d36301def82ffe762 *src/args.c
 f581d98b7b33073e8550f34412d4f704 *src/args.h
-6b40028d134dc8e34fac70dda2bec2bb *src/bib2be.c
-4fb4ac9021c146299619f4e8272596cc *src/bibcore.c
+72abd8157cf633af83363a23dd9aed20 *src/bib2be.c
+939a47438918e2e9e38b0bd2836b0849 *src/bibcore.c
 dff02a08034cb6f50a4aa66f8f4a943a *src/bibdefs.h
 3ad40374a4cdf681d62a2a9ac106da51 *src/bibentrydirectout.c
 b58965714118e17ec4d6f183e03305c1 *src/bibentryout.c
@@ -68,9 +69,9 @@ df0eddd7350e0fc624cc984cc8a5b40c *src/bibl.c
 1ba02939f693e1c4aac3a75246dd02b9 *src/bibl.h
 cbfbf40a7223523190c0671db71974c4 *src/biblatexin.c
 e6d4b72269948f24362b836554b3f6e7 *src/biblatexout.c
-8e4cc482ba98a40690bad3c29ba15931 *src/bibprog.c
+fb92cf31d518fcf14cf070f48aff8fbf *src/bibprog.c
 96752dc5b649a18493d9d7c9743481ee *src/bibprog.h
-6d3dc5c385cd699ef850bb6537d21ace *src/bibtexdirectin.c
+9b1587af9003905a9c32ec1039abeebd *src/bibtexdirectin.c
 24845ed8c7400e9cb12e49d20ec7d00f *src/bibtexin.c
 4334bee616f575ce9a8ed9713545be1f *src/bibtexout.c
 0e4726f880e7649e5890578c0886d765 *src/bibtextypes.c
@@ -112,7 +113,7 @@ e711ca04b3557f6a346846f88ab27946 *src/iso639_2.c
 5c2048e79a952db7e64d2604bb2b25ac *src/iso639_3.h
 93a0f8395e51bb9b16a14cb6a905aa4c *src/latex.c
 db2c117bdfa508627f35311fe1bb2934 *src/latex.h
-31bf6ddbf407971ae97bc926b393ebf7 *src/latex_parse.c
+4142ca58b69574699de10568eea559f7 *src/latex_parse.c
 705b692c17c60cfca70250c7b4cd3aba *src/latex_parse.h
 c1ef33714eba0092cb94a03934351f31 *src/marc_auth.c
 f3d7c9a45fc02884bc1b708bd9043212 *src/marc_auth.h
@@ -121,7 +122,7 @@ e9e1e1f3316e95bef23b36fbda4d92ae *src/medin.c
 03804f30424bce58d1cceaf29b680181 *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
 b75e58241abe61b207057e3cfe8af274 *src/modstypes.h
-f9a8b17558fa3f1698157cc8e3ad7a7f *src/name.c
+f4ead80269fbead2bba32de858e304ee *src/name.c
 1027f042a3f41258bff3bdc4a16d9849 *src/name.h
 7374d1b651f4dec5392412061dc03998 *src/nbibin.c
 69f41c635415e99ad46ca68ec5d64ceb *src/nbibout.c
@@ -139,7 +140,7 @@ ec9bdf350be0aaf3e781d03c2050bfd9 *src/serialno.c
 5088476d388d333a0ad9a8fc8baf0096 *src/serialno.h
 d958181a26bc53c7de6711eac3c5a008 *src/slist.c
 bc0b771ccfbce99f09a436df510ca57c *src/slist.h
-84306129c2b982675b380fb261abcb97 *src/str.c
+969d67ca0760395e2402127380baafb8 *src/str.c
 ec2cf50a0d206183203a52e7f5bc33f9 *src/str.h
 44915ebfdb77a2dbc28c0034b9a250d3 *src/str_conv.c
 b2e7280c6c6241bfd6d19e8c73d9c401 *src/str_conv.h
@@ -163,7 +164,7 @@ aeddae636a5292871af6364293ac800d *src/wordin.c
 6da27f3b6f2e3bf552470c00fbfc09ae *src/wordout.c
 bde8c5930c6f6066984e96e981450611 *src/xml.c
 369baa5dfcbe132edb92f8d7113f1d6c *src/xml.h
-6198818602eae542d53fd5dd2eef4d15 *src/xml2any.c
+dc8a464678b815f21124c6b035ed2513 *src/xml2any.c
 826d6ae3da07f7f1a4c6a8a389e890af *src/xml_encoding.c
 a40712ff6837fc20b6179daaa2ea4a38 *src/xml_encoding.h
 edc431313b47f9ab66019cf4e0aced9c *tests/testthat.R
@@ -190,8 +191,8 @@ d7b54ecaf30f7cda33611857677d65c4 *tests/testthat/rds2bbl2.rds
 7eb65924886161120829b37fdbba0fb3 *tests/testthat/test-bib.R
 e65307cf84cf4602e6a7d31699e4dd25 *tests/testthat/test-bibstyleExtra.R
 74f81fede4fad2df86b9a76738d0627f *tests/testthat/test-charToBib.R
-fd1ccd49758d5c3c9203c2742761e88a *tests/testthat/test-convert.R
+eb680b9a75dfe4bdaf51bb3c1725224b *tests/testthat/test-convert.R
 ad883acce5c9f92c5838714742e782a5 *tests/testthat/test-convert.Rsav
-e13f70c6eb4696ff52cc8ad5da3cd94e *tests/testthat/test-https.R
+468abeb885d93bc8e98594151d600ec4 *tests/testthat/test-https.R
 4babaad8fdfaf23ed1a7d85303babc45 *tests/testthat/wordbib2bib.rds
 cdc6ef08e72fd6ef90d3dc72b72304bb *tests/testthat/xml2bib.rds
