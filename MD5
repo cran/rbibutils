@@ -1,6 +1,6 @@
-8799f1344a91b6db9e00ddbbf8115e1e *DESCRIPTION
+e4f421bd3c6734936b254b69142b3886 *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-5b8629cb24d84704bbf6026683afeca8 *NEWS.md
+bad31739b16ef806ee869016295bdde0 *NEWS.md
 9c42971403b6ce650b1bc142b1fd8007 *R/bib.R
 1bb0e802aeed55a1b9eaa4cd59d746ec *R/bibentry.R
 6d06a9d2b36c9f1d25b8afb924c85c45 *R/convert.R
@@ -9,7 +9,7 @@ d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
 1fbd194970080c6675e086990bf2c6c8 *README.md
 bbf5fec3935d4ee8f92a8fbd3202b6cc *TODO
-d45ca1903ee40c76b77de25bbd415244 *build/partial.rdb
+d8a1e1b72b2ff8e3a8c20c3262f5dcfc *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -31,6 +31,7 @@ e45a933532c6549b416f4bb08e7da9bb *inst/bib/cyr_utf8.bib
 a1fb48f2684d6fb1ce4ea57c1a1cd26f *inst/bib/eaf_GruFon2009.bib
 b4c2d5d0e79e1d59af57a79e84af02e9 *inst/bib/eaf_Grunert01.bib
 a1f9e0d8ed049829dc4388b1a59d79db *inst/bib/easyPubMedvig.xml
+98c91aa80e6678b15d9a536c8456d38d *inst/bib/easyPubMedvig_no_new_lines.xml
 cba08d7e0d7e88c2ac2e5f8d4e1bdbd4 *inst/bib/endnote.xml
 37935b38fa7699cea722fb1b10874e75 *inst/bib/ex0.biblatex
 f10142a222ea168e7ba81db90cbc92a4 *inst/bib/ex0.bibtex
@@ -117,7 +118,7 @@ db2c117bdfa508627f35311fe1bb2934 *src/latex.h
 705b692c17c60cfca70250c7b4cd3aba *src/latex_parse.h
 c1ef33714eba0092cb94a03934351f31 *src/marc_auth.c
 f3d7c9a45fc02884bc1b708bd9043212 *src/marc_auth.h
-e9e1e1f3316e95bef23b36fbda4d92ae *src/medin.c
+39f20befe6064755655c968a2d5cdb7c *src/medin.c
 0b4167403cd5a730c96efe1d63daeabd *src/modsin.c
 03804f30424bce58d1cceaf29b680181 *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
@@ -191,7 +192,7 @@ d7b54ecaf30f7cda33611857677d65c4 *tests/testthat/rds2bbl2.rds
 7eb65924886161120829b37fdbba0fb3 *tests/testthat/test-bib.R
 e65307cf84cf4602e6a7d31699e4dd25 *tests/testthat/test-bibstyleExtra.R
 74f81fede4fad2df86b9a76738d0627f *tests/testthat/test-charToBib.R
-eb680b9a75dfe4bdaf51bb3c1725224b *tests/testthat/test-convert.R
+a82a8b2d6e676585c0b6dd2a8fe28332 *tests/testthat/test-convert.R
 ad883acce5c9f92c5838714742e782a5 *tests/testthat/test-convert.Rsav
 468abeb885d93bc8e98594151d600ec4 *tests/testthat/test-https.R
 4babaad8fdfaf23ed1a7d85303babc45 *tests/testthat/wordbib2bib.rds
