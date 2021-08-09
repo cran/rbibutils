@@ -1,4 +1,10 @@
-# rbibutils 2.2.2
+# rbibutils 2.2.3 (CRAN)
+
+- fixed memory issues from valgrind in v2.2.2 thanks to patch supplied by Bill
+  Dunlap.
+
+
+# rbibutils 2.2.2 (CRAN)
 
 - import of `Pubmed XML` was sometimes giving a handful of references for files
   with tens or hundreds of them. Now fixed, see issue #4, reported by Rafael

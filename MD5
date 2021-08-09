@@ -1,15 +1,15 @@
-e4f421bd3c6734936b254b69142b3886 *DESCRIPTION
+43dcc091f6dc772a7a1a86a3010bca11 *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-bad31739b16ef806ee869016295bdde0 *NEWS.md
+aee4beecb10dd42ef87f0307d931ff12 *NEWS.md
 9c42971403b6ce650b1bc142b1fd8007 *R/bib.R
 1bb0e802aeed55a1b9eaa4cd59d746ec *R/bibentry.R
 6d06a9d2b36c9f1d25b8afb924c85c45 *R/convert.R
 14880e7e4ce25bcbcfe02ee478941705 *R/formats.R
 4e5b22e5cca0fb7efe0eec791671190b *R/import.R
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
-1fbd194970080c6675e086990bf2c6c8 *README.md
+0a75dc2fd52d1bc4873dd9238bebcc4b *README.md
 bbf5fec3935d4ee8f92a8fbd3202b6cc *TODO
-d8a1e1b72b2ff8e3a8c20c3262f5dcfc *build/partial.rdb
+6f1205c8935a8b63ec42ab0c18473a42 *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -49,7 +49,7 @@ db47478af2a1ac4ab18951183d314b73 *inst/bib/litprog280no_macros.bib
 68787729fdb887f6821860eb1a0e91f5 *inst/bib/superb_n15.bib
 b59859fb7a99b5de610fb3017b7d6c81 *inst/bib/texjourn001.bib
 791e0e44f81218e60109957668029b73 *inst/bib/urlR.bib
-98326e8bbf2468c158e1dc25a2dc9912 *man/bibConvert.Rd
+118a35db3dc5d726ac7740e9007e6a31 *man/bibConvert.Rd
 e9f2a6ac371720666713a0e88b96141b *man/rbibutils-package.Rd
 4ecc44054156071b921557096d50a7d2 *man/rbibutils_formats.Rd
 49e436dc8ae6a5263e854563acab59ad *man/readBib.Rd
@@ -118,7 +118,7 @@ db2c117bdfa508627f35311fe1bb2934 *src/latex.h
 705b692c17c60cfca70250c7b4cd3aba *src/latex_parse.h
 c1ef33714eba0092cb94a03934351f31 *src/marc_auth.c
 f3d7c9a45fc02884bc1b708bd9043212 *src/marc_auth.h
-39f20befe6064755655c968a2d5cdb7c *src/medin.c
+c56071425942f327916b5843c2119ede *src/medin.c
 0b4167403cd5a730c96efe1d63daeabd *src/modsin.c
 03804f30424bce58d1cceaf29b680181 *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
@@ -141,7 +141,7 @@ ec9bdf350be0aaf3e781d03c2050bfd9 *src/serialno.c
 5088476d388d333a0ad9a8fc8baf0096 *src/serialno.h
 d958181a26bc53c7de6711eac3c5a008 *src/slist.c
 bc0b771ccfbce99f09a436df510ca57c *src/slist.h
-969d67ca0760395e2402127380baafb8 *src/str.c
+87f00ba7462a956cefa863aa300f511c *src/str.c
 ec2cf50a0d206183203a52e7f5bc33f9 *src/str.h
 44915ebfdb77a2dbc28c0034b9a250d3 *src/str_conv.c
 b2e7280c6c6241bfd6d19e8c73d9c401 *src/str_conv.h
