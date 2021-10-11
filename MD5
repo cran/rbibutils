@@ -1,6 +1,6 @@
-43dcc091f6dc772a7a1a86a3010bca11 *DESCRIPTION
+11017c07ee5ac53d21c91b12c8a0f938 *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-aee4beecb10dd42ef87f0307d931ff12 *NEWS.md
+0fb108a9ee12e99252c550f407e685d2 *NEWS.md
 9c42971403b6ce650b1bc142b1fd8007 *R/bib.R
 1bb0e802aeed55a1b9eaa4cd59d746ec *R/bibentry.R
 6d06a9d2b36c9f1d25b8afb924c85c45 *R/convert.R
@@ -9,7 +9,7 @@ aee4beecb10dd42ef87f0307d931ff12 *NEWS.md
 871901ee0e03de92474f949f3093a146 *R/sysdata.rda
 0a75dc2fd52d1bc4873dd9238bebcc4b *README.md
 bbf5fec3935d4ee8f92a8fbd3202b6cc *TODO
-6f1205c8935a8b63ec42ab0c18473a42 *build/partial.rdb
+8208d02119a64850887859ba572c507f *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -38,6 +38,7 @@ f10142a222ea168e7ba81db90cbc92a4 *inst/bib/ex0.bibtex
 a69aa77dc99c56f2e7fdd5c53e627b30 *inst/bib/ex0.xml
 f45b481a7fa52bfdc5b2f9f7fd1cb306 *inst/bib/ex1.endx
 cf8b46233f10709c3b89250f7473aaf0 *inst/bib/iridia_BorEly1998online.bib
+36fb77f4ebc9bcc99e914630daaf82f8 *inst/bib/issue_5.bib
 e6159835676eb95020d882e1064f15d6 *inst/bib/latin1accents_utf8.bib
 47eef2a2faefcfbd9b6c192d9e39445d *inst/bib/latin1accents_utf8a.bib
 211dbd4817124f9fa8729e8538b2f7ee *inst/bib/latin1accents_utf8b.bib
@@ -49,10 +50,12 @@ db47478af2a1ac4ab18951183d314b73 *inst/bib/litprog280no_macros.bib
 68787729fdb887f6821860eb1a0e91f5 *inst/bib/superb_n15.bib
 b59859fb7a99b5de610fb3017b7d6c81 *inst/bib/texjourn001.bib
 791e0e44f81218e60109957668029b73 *inst/bib/urlR.bib
-118a35db3dc5d726ac7740e9007e6a31 *man/bibConvert.Rd
+569f86a001286a663e57bec8e3d76b87 *inst/bib/xeCJK_gb18030.bib
+c4adbe083ae6fad0c30f953f047b0964 *inst/bib/xeCJK_utf8.bib
+41d1cfc7f1b62bf897488777bfa80de8 *man/bibConvert.Rd
 e9f2a6ac371720666713a0e88b96141b *man/rbibutils-package.Rd
 4ecc44054156071b921557096d50a7d2 *man/rbibutils_formats.Rd
-49e436dc8ae6a5263e854563acab59ad *man/readBib.Rd
+a4c475c1e7d380d5c4bd05001ec7c9f8 *man/readBib.Rd
 30f6128ed9c73a7a40d631b7ab2d7320 *man/readBibentry.Rd
 1ed8729b4b0150e29ad37fbe2e1ee9a7 *man/register_JSSextra.Rd
 47a402cabeb1d422c48fc2d95ff818c8 *src/adsout.c
@@ -63,7 +66,7 @@ f581d98b7b33073e8550f34412d4f704 *src/args.h
 72abd8157cf633af83363a23dd9aed20 *src/bib2be.c
 939a47438918e2e9e38b0bd2836b0849 *src/bibcore.c
 dff02a08034cb6f50a4aa66f8f4a943a *src/bibdefs.h
-3ad40374a4cdf681d62a2a9ac106da51 *src/bibentrydirectout.c
+9e91dc73e56f7e617882e64d229e9da7 *src/bibentrydirectout.c
 b58965714118e17ec4d6f183e03305c1 *src/bibentryout.c
 8b65540628c3a67edf8ffcfb71e9d618 *src/bibformats.h
 df0eddd7350e0fc624cc984cc8a5b40c *src/bibl.c
@@ -72,7 +75,7 @@ cbfbf40a7223523190c0671db71974c4 *src/biblatexin.c
 e6d4b72269948f24362b836554b3f6e7 *src/biblatexout.c
 fb92cf31d518fcf14cf070f48aff8fbf *src/bibprog.c
 96752dc5b649a18493d9d7c9743481ee *src/bibprog.h
-9b1587af9003905a9c32ec1039abeebd *src/bibtexdirectin.c
+cac6046ae284191fa0213eb12c95a837 *src/bibtexdirectin.c
 24845ed8c7400e9cb12e49d20ec7d00f *src/bibtexin.c
 4334bee616f575ce9a8ed9713545be1f *src/bibtexout.c
 0e4726f880e7649e5890578c0886d765 *src/bibtextypes.c
@@ -123,7 +126,7 @@ c56071425942f327916b5843c2119ede *src/medin.c
 03804f30424bce58d1cceaf29b680181 *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
 b75e58241abe61b207057e3cfe8af274 *src/modstypes.h
-f4ead80269fbead2bba32de858e304ee *src/name.c
+4430812d163e992ec5fb4b8f321c3c49 *src/name.c
 1027f042a3f41258bff3bdc4a16d9849 *src/name.h
 7374d1b651f4dec5392412061dc03998 *src/nbibin.c
 69f41c635415e99ad46ca68ec5d64ceb *src/nbibout.c
@@ -185,11 +188,13 @@ cdc6ef08e72fd6ef90d3dc72b72304bb *tests/testthat/biblatex2bib.rds
 f9c8f9b845e3ff7e98b25c8049462a9e *tests/testthat/eaf_Grunert01.rds
 a29e05e991232b3f7b5ff3bc7b90f8d4 *tests/testthat/end2bib.rds
 478acbcc44d5c3e642f00a6fa6562c72 *tests/testthat/isi2bib.rds
+c42abcfab2fda43303bac42e7ba6b12d *tests/testthat/issue_5_utf8.rds
+cccca50c0d0104ca982f3be3cf0a7d3a *tests/testthat/issue_5a.rds
 5528f158d907323fe489d77cf778e391 *tests/testthat/med2bib.rds
 d7b54ecaf30f7cda33611857677d65c4 *tests/testthat/rds2bbl2.rds
 800b9c89dec0ad8a7e0dfab50f084906 *tests/testthat/rds2xml.rds
 48df420b7df16a000dc76f5510d2cebf *tests/testthat/ris2bib.rds
-7eb65924886161120829b37fdbba0fb3 *tests/testthat/test-bib.R
+76f7a83dc05ee31d70ed0938d8546411 *tests/testthat/test-bib.R
 e65307cf84cf4602e6a7d31699e4dd25 *tests/testthat/test-bibstyleExtra.R
 74f81fede4fad2df86b9a76738d0627f *tests/testthat/test-charToBib.R
 a82a8b2d6e676585c0b6dd2a8fe28332 *tests/testthat/test-convert.R
