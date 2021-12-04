@@ -1,6 +1,32 @@
+# rbibutils 2.2.4.9003
+
+- `readBibentry` with `extra = TRUE` now parses (almost) any syntactically
+  correct bib entries. In particular, it accepts arbitrary bib types and doesn't
+  throw errors for bibentries missing fields required by bibtex for the standard
+  bibtex types. For example, biblatex entries typically have `date`, not `year`.
+
+- `readBib` with `direct = TRUE` and `texChars` set to `"convert"` or `"export"`
+  was not processing mathematical expressions properly. Now fixed.
+  
+- argument `texChars` of `readBib` gets new possible value, "Rdpack". This is
+  like the default, "keep", but in addition it converts `\'i' to `\'\i`. This
+  is related to issue #7, see below the fix in v2.2.4 for details. This is
+  mainly for internal use.
+
+- improved the messages from error handling when creating bibentry
+  objects. The fix is in `readBibentry` but users typically see them when
+  calling `readBib`.
+
+- fixed an error which caused `bibConvert` to segfault when importing `nbib`
+  files.
+
+- `readBibentry` (and hence `readBib`) were printing some error messages that
+  were actually handled.
+  
+
 # rbibutils 2.2.4 (CRAN)
 
-# fixed the handling of accents over `i` in authors' names when the LaTeX
+- fixed the handling of accents over `i` in authors' names when the LaTeX
   escapes are not converted to real characters (there were no problems when
   converted to UTF-8). Reported by Manuel López-Ibáñez with examples (issue #5,
   #6, #7).

@@ -29,6 +29,9 @@ bibtexImport <- function(infile, ..., tex = NULL, encoding = NULL, options, extr
                    no_latex = { # accents to letters    # TODO: this needs further work
                        argv_2be <- c(argv_2be, "-nl") 
                    },
+                   export_tex_chars = {
+                       argv_2be <- c(argv_2be, "--export_tex_chars")
+                   },
                    ## uppercase = {
                    ##     argv_2be <- c(argv_2be, "-U")
                    ## },
@@ -40,6 +43,12 @@ bibtexImport <- function(infile, ..., tex = NULL, encoding = NULL, options, extr
                    },
                    comma = {
                        argv_2be <- c(argv_2be, "-fc")
+                   },
+                   Rdpack = {
+                       argv_2be <- c(argv_2be, "--Rdpack")
+                   },
+                   convert_latex_escapes = {
+                       argv_2be <- c(argv_2be, "--convert_latex_escapes")
                    },
                    ## default
                    stop("unsupported 'tex' option")

@@ -1,5 +1,6 @@
 readBib <- function(file, encoding = NULL, ..., direct = FALSE,
-                    texChars = c("keep", "convert", "export"), macros = NULL, extra = FALSE, key){
+                    texChars = c("keep", "convert", "export", "Rdpack"),
+                    macros = NULL, extra = FALSE, key){
 
     if(is.null(encoding))
         encoding <- c("utf8", "utf8")  # would default input 'native' be better?
@@ -50,14 +51,21 @@ readBib <- function(file, encoding = NULL, ..., direct = FALSE,
         texChars <- match.arg(texChars)
         switch(texChars,
                convert = {
-                   tex <- "no_latex"
+                   ## was: tex <- "no_latex"
+                   tex <- c("convert_latex_escapes", "no_latex")
                },
                keep = {
                    ## this will need separate no_latex option for infile and outfile.
                    #stop(" 'texChars = keep' not implemented yet")
                    tex <- c("keep_tex_chars", "no_latex")
                },
-               ## export
+               Rdpack = {
+                   ## like 'keep' but patches for Rdpack, see issue #7 in rbibutils
+                   tex <- c("keep_tex_chars", "no_latex", "Rdpack")
+               },
+               export = {
+                   tex <- c("export_tex_chars")
+               },
                ## default
                tex <- NULL
                )
@@ -151,8 +159,14 @@ bibstyle_JSSextra <- local({
             ## TODO: this is a patch to make this safely reentrable
             if(!exists("formatMiscJSS"))
                 formatMiscJSS <- formatMisc
-        
+
+            ## TODO: more work needed here
             formatMisc <- function(paper) {
+                if(is.null(paper$year) && !is.null(paper$date)){
+                    if(grepl("^[0-9][0-9][0-9][0-9]", paper$date))
+                        paper$year <- substr(paper$date, 1, 4)
+                }
+                
                 if(is.null(paper$truebibtype))
                     ## default copy of JSS's formatMisc
                     formatMiscJSS(paper)
@@ -177,12 +191,55 @@ bibstyle_JSSextra <- local({
                                    paste0(paper$bibsource)
                                ))
                            },
-                           ## default - TODO, 
-                           collapse(c(fmtPrefix(paper),
-                                      sentence(authorList(paper), fmtYear(paper$year), sep = " "),
-                                      fmtTitle(paper$title),
-                                      sentence(fmtHowpublished(paper$howpublished)),
-                                      sentence(extraInfo(paper))))
+                           Article = {
+                               if(is.null(paper$journal))
+                                   paper$journal <- paper$journaltitle
+                               formatArticle(paper)
+                           },
+                           Book = {
+                               formatBook(paper)
+                           },
+                           # Booklet = {
+                           #     formatBook(paper)
+                           # },
+                           InBook = {
+                               formatInBook(paper)
+                           },
+                           InCollection = {
+                               formatInCollection(paper)
+                           },
+                           InProceedings = {
+                               formatInProceedings(paper)
+                           },
+                           Manual = {
+                               formatManual(paper)
+                           },
+                           MastersThesis = {
+                               formatMastersThesis(paper)
+                           },
+                           Misc = {
+                               formatMisc(paper)
+                           },
+                           PhdThesis = {
+                               formatPhdThesis(paper)
+                           },
+                           Proceedings = {
+                               formatProceedings(paper)
+                           },
+                           TechReport = {
+                               formatTechReport(paper)
+                           },
+                           Unpublished = {
+                               formatUnpublished(paper)
+                           },
+                           ## default - TODO,
+                           {
+                               collapse(c(fmtPrefix(paper),
+                                          sentence(authorList(paper), fmtYear(paper$year), sep = " "),
+                                          fmtTitle(paper$title),
+                                          sentence(fmtHowpublished(paper$howpublished)),
+                                          sentence(extraInfo(paper))))
+                           }
                            )
                 }
             }

@@ -1,6 +1,12 @@
 bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding, options){
     stopifnot(length(list(...)) == 0) # no ... arguments allowed
     
+    if(!is.character(infile))
+        stop("argument 'infile' must be a character string")
+    else if(!file.exists(infile) && (missing(options) || is.null(options["h"]))){
+        stop("input file \"", infile, "\" doesn't exist")
+    }
+        
     if(missing(informat)){
         ext <- tools::file_ext(infile)
         informat <- switch(ext,
@@ -242,7 +248,7 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
     argv_xml2 <- as.character(argv_xml2)    
     switch(outformat,
            xml = {
-               wrk_out = list(xmlfile)
+               wrk_out = list(xmlfile, nref_in = wrk_in$nref_in, nref_out = wrk_in$nref_in)
            },
            bibtex = ,
            bib = {
@@ -302,8 +308,8 @@ bibConvert <- function(infile, outfile, informat, outformat, ..., tex, encoding,
 
     if(is.numeric(wrk_out$nref_out) && wrk_out$nref_out == 0)
         message("\nno references to output.\n",
-                "if this is wrong, consider using argument 'informat'.\n")
-    
+                "if this seems wrong, consider using argument 'informat'.\n")
+
     wrk <- list("infile" = infile, "outfile" = outfile,
                 nref_in = wrk_in$nref_in,
                 nref_out = wrk_out$nref_out
