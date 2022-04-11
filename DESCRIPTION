@@ -1,8 +1,8 @@
 Package: rbibutils
 Type: Package
 Title: Read 'Bibtex' Files and Convert Between Bibliography Formats
-Version: 2.2.7
-Date: 2021-12-06
+Version: 2.2.8
+Date: 2022-04-11
 Authors@R: c( person(given = c("Georgi", "N."), family = "Boshnakov", 
                      role = c("aut", "cre"), 	
                      email = "georgi.boshnakov@manchester.ac.uk",
@@ -34,7 +34,7 @@ Suggests: testthat
 Encoding: UTF-8
 NeedsCompilation: yes
 Config/Needs/memcheck: devtools, rcmdcheck
-Packaged: 2021-12-06 21:49:35 UTC; georgi
+Packaged: 2022-04-11 12:38:57 UTC; georgi
 Author: Georgi N. Boshnakov [aut, cre] (R port, R code, new C code and
     modifications to bibutils' C code, conversion to Bibentry (R and C
     code)),
@@ -44,4 +44,4 @@ Author: Georgi N. Boshnakov [aut, cre] (R port, R code, new C code and
   Johannes Wilm [ctb] (src/biblatexin.c, src/bltypes.c)
 Maintainer: Georgi N. Boshnakov <georgi.boshnakov@manchester.ac.uk>
 Repository: CRAN
-Date/Publication: 2021-12-07 07:50:02 UTC
+Date/Publication: 2022-04-11 13:10:02 UTC

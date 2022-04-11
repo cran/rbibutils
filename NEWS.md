@@ -1,11 +1,30 @@
+# rbibutils 2.2.8 (CRAN)
+
+- new argument `fbibentry` for `readBib` and `readBibentry` for specification of
+  a function for generation of bib objects. It should have the same arguments as
+  the default `utils::bibentry()` but doesn't need to be vectorised, since
+  `readBibentry()` generates one `bibentry` call for each reference.
+
+- `readBib` now parses correctly LaTeX accents like `\a'o`. These are officially
+  defined only for LaTeX's `tabbing` environment as replacements for `\'o`,
+  etc., but seem accepted by LaTeX outside these environments. Also, `Bibtex`
+  converts them to the standard ones when writing `.bbl` files and R's bib
+  processing functions know about them.
+
+- a bug in `ads` export was causing a test to fail on platforms with `char`
+  equivalent to `unsigned char`. Reported by @nileshpatra, who also identified
+  the cause. Fixes issue#8 on github.
+
+
 # rbibutils 2.2.7 (CRAN)
 
-- fix bug in isi output occuring revealed by gss/ASAN check in v2.2.5 and 2.2.6.
+- fixed bug in isi output occuring in v2.2.5 and 2.2.6 and revealed by gss/ASAN
+  check.
 
 
 # rbibutils 2.2.6
 
-- fix memory leaks in nbib output in biblatex input occuring in v2.2.5.
+- fixed memory leaks in nbib output in biblatex input occuring in v2.2.5.
 
 
 # rbibutils 2.2.5 (CRAN)
