@@ -1,4 +1,11 @@
-# rbibutils 2.2.12
+# rbibutils 2.2.13 (CRAN)
+
+- Bugfix: the declaration of the return value of a C function was accidentally
+  changed from `const char *` to `char *` in v2.2.12, causing CRAN warnings on
+  some platforms.
+
+
+# rbibutils 2.2.12 (CRAN)
 
 - Bugfix: `readBib` with `texChars = "Rdpack"` which converts `\'i` to `\'\i`
    was wrapping `\'\i` in braces in 'author' and related fields only. Failure to
@@ -9,6 +16,8 @@
    use which compensates for R not recognising `\'i` as an accented character,
    see the news items for v2.2.5 and v2.2.4 and the bug report about
    `tools:::latexToUtf8` at [R bugs](https://bugs.r-project.org/show_bug.cgi?id=18208).
+
+- partial internal refactoring of C code to avoid duplication.
 
 
 # rbibutils 2.2.11 (CRAN)

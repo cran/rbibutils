@@ -388,7 +388,7 @@ string_concatenate( slist *tokens, loc *currloc )
 }
 
 /* return NULL on memory error */
-char *
+const char *
 process_bibtexline( const char *p, str *tag, str *data, uchar stripquotes, loc *currloc )
 {
 	slist tokens;

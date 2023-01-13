@@ -39,7 +39,7 @@ int bibtexin_readf( FILE *fp, char *buf, int bufsize, int *bufpos, str *line, st
 
 const char *process_bibtexid( const char *p, str *id );
 
-char *process_bibtexline( const char *p, str *tag, str *data, uchar stripquotes, loc *currloc );
+const char *process_bibtexline( const char *p, str *tag, str *data, uchar stripquotes, loc *currloc );
 
 const char*process_bibtextype( const char *p, str *type );
 

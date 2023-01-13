@@ -1,6 +1,6 @@
-c4dc3782d1a4251851ccfb3dc9c02a33 *DESCRIPTION
+c1f12093e0eb43ad5f380447c2c79a2a *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-ab1f131f4257e4b58600b311c1e03ae4 *NEWS.md
+a7627e746300d35b1d4f872ae6cb30b1 *NEWS.md
 09d8c39c7165904c1927ebb2b5bd9d53 *R/bib.R
 1f7ee9598264f930e066c8da9121a779 *R/bibentry.R
 60696ca2984d741904cf6961a829fd99 *R/convert.R
@@ -9,7 +9,7 @@ c71d3bf6111a7a2a659a719527aea657 *R/import.R
 b558461e64d9657f426a9839a41ee15b *R/sysdata.rda
 4a3ed67bbd9f61477aaa6623139ce7fa *README.md
 a8823533f3db6da2798e75f93714edb1 *TODO
-60165dce0ec1e38bbff73ae542eb3593 *build/partial.rdb
+6d57342456c83529d6cfe2d7704bb5be *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -102,8 +102,8 @@ ebfa384f531fbed8084cedaa6dc60ad5 *src/common_bt_blt_btd_out.c
 b9c3d0c5934238a6e487f805d1354107 *src/common_bt_blt_btd_out.h
 84ea5109c2bdc86ac7bdda9d01e5f262 *src/common_bt_btd.c
 d137ca769dbf939b836b10fe5d2e7ad6 *src/common_bt_btd.h
-c2b1acacc1285b01cf15ce01cb5162ae *src/common_bt_btd_blt.c
-50e6385323fe2ed060ccd5ece31ae85d *src/common_bt_btd_blt.h
+dafe0c606644635fe45f148032e27a4c *src/common_bt_btd_blt.c
+305e6457f7937d6fde0228f7f1f4b7ea *src/common_bt_btd_blt.h
 afd1262b0617e47ad6944cfeceeacbab *src/common_bt_btd_out.c
 7426333be3ec706b854ea069472044d3 *src/common_bt_btd_out.h
 f3c91aeadd9c8c99934f41ef0d89d401 *src/copacin.c
