@@ -1,6 +1,6 @@
-b4621cfbfb4c04bf407cae18819085c3 *DESCRIPTION
+2bc40d7800cb180bcfd66c9800d6e323 *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-edaba78ebb21ad43d60dec9388e018a6 *NEWS.md
+92070ca921caf4ab0820d1fe023c954e *NEWS.md
 09d8c39c7165904c1927ebb2b5bd9d53 *R/bib.R
 1f7ee9598264f930e066c8da9121a779 *R/bibentry.R
 60696ca2984d741904cf6961a829fd99 *R/convert.R
@@ -9,7 +9,7 @@ c71d3bf6111a7a2a659a719527aea657 *R/import.R
 857b49a81283f5392ba65e0e006b6751 *R/sysdata.rda
 4a3ed67bbd9f61477aaa6623139ce7fa *README.md
 a8823533f3db6da2798e75f93714edb1 *TODO
-1470ac0460ed33036350438a1eae3fcd *build/partial.rdb
+bb3e1638f642ad8ad80eed362b780bd7 *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -192,7 +192,7 @@ bde8c5930c6f6066984e96e981450611 *src/xml.c
 826d6ae3da07f7f1a4c6a8a389e890af *src/xml_encoding.c
 a40712ff6837fc20b6179daaa2ea4a38 *src/xml_encoding.h
 edc431313b47f9ab66019cf4e0aced9c *tests/testthat.R
-d61d66899e9bb9980d6f59381222521b *tests/testthat/acc_fn.rds
+9113cadb277c18a6ebda4a4d19d4b59f *tests/testthat/acc_fn.rds
 c25b56174137e241c5bb6037a339c73b *tests/testthat/bib2R.rds
 6e276aa1281bcf1c1facda97b0f827be *tests/testthat/bib2ads.rds
 aa29720eda48ed2447e1387ee36c9098 *tests/testthat/bib2biblatex.rds
@@ -213,13 +213,13 @@ c42abcfab2fda43303bac42e7ba6b12d *tests/testthat/issue_5_utf8.rds
 cccca50c0d0104ca982f3be3cf0a7d3a *tests/testthat/issue_5a.rds
 1f8142f9c8476319c69999e00576b564 *tests/testthat/issue_5rdpack.rds
 5528f158d907323fe489d77cf778e391 *tests/testthat/med2bib.rds
-d7b54ecaf30f7cda33611857677d65c4 *tests/testthat/rds2bbl2.rds
-800b9c89dec0ad8a7e0dfab50f084906 *tests/testthat/rds2xml.rds
+78044779f3275b3dea32f88c1df35318 *tests/testthat/rds2bbl2.rds
+c606fdcd14615f007ecc4e9c218574f3 *tests/testthat/rds2xml.rds
 48df420b7df16a000dc76f5510d2cebf *tests/testthat/ris2bib.rds
-a64bb05cb811a80042a129d1718829bb *tests/testthat/test-bib.R
+c3ce845332bf2208be28b71dd6b5079d *tests/testthat/test-bib.R
 e65307cf84cf4602e6a7d31699e4dd25 *tests/testthat/test-bibstyleExtra.R
 74f81fede4fad2df86b9a76738d0627f *tests/testthat/test-charToBib.R
-76f5cd43abb93046c3535b873a02afb1 *tests/testthat/test-convert.R
+d0cfdd030bfba96b6b364a9bec7be8dc *tests/testthat/test-convert.R
 ad883acce5c9f92c5838714742e782a5 *tests/testthat/test-convert.Rsav
 468abeb885d93bc8e98594151d600ec4 *tests/testthat/test-https.R
 2d2546fad6715919364c7bab3d8e7dae *tests/testthat/texChars_converted.rds

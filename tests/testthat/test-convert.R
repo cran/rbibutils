@@ -194,10 +194,12 @@ test_that("bibConvert works ok", {
 
     
     bibConvert(tmp_rds, tmp_xml, options = c(un = ""))  # rds to MODS XML intermediate
-    expect_known_value(readLines(tmp_xml), "rds2xml.rds", update = FALSE)
+    if(is.numeric(svnrev <- R.Version()$'svn rev')  &&  svnrev >= 84986)
+        expect_known_value(readLines(tmp_xml), "rds2xml.rds", update = FALSE)
 
     bibConvert(tmp_rds, tmp_bbl2, outformat = "biblatex", options = c(nb = ""))
-    expect_known_value(readLines(tmp_bbl2), "rds2bbl2.rds", update = FALSE)
+    if(is.numeric(svnrev <- R.Version()$'svn rev')  &&  svnrev >= 84986)
+        expect_known_value(readLines(tmp_bbl2), "rds2bbl2.rds", update = FALSE)
 
     
     bibConvert(tmp_bib, tmp_wordbib)

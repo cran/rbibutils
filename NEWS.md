@@ -1,3 +1,8 @@
+# rbibutils 2.2.15 (CRAN)
+
+- adapted some tests to a change in R-devel circa r84986.
+
+
 # rbibutils 2.2.14 (CRAN)
 
 - fixed a couple of tests in 'test-convert.R' which started failing (ca. R svn
