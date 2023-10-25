@@ -1,6 +1,6 @@
-2bc40d7800cb180bcfd66c9800d6e323 *DESCRIPTION
+0f484c51e8ad614cc4f184e1f30ff9e1 *DESCRIPTION
 d0ded7645601ab41b82fca2464bc53b3 *NAMESPACE
-92070ca921caf4ab0820d1fe023c954e *NEWS.md
+57f3d9d9bef2b2863fa8eb3a35ceb98d *NEWS.md
 09d8c39c7165904c1927ebb2b5bd9d53 *R/bib.R
 1f7ee9598264f930e066c8da9121a779 *R/bibentry.R
 60696ca2984d741904cf6961a829fd99 *R/convert.R
@@ -9,7 +9,7 @@ c71d3bf6111a7a2a659a719527aea657 *R/import.R
 857b49a81283f5392ba65e0e006b6751 *R/sysdata.rda
 4a3ed67bbd9f61477aaa6623139ce7fa *README.md
 a8823533f3db6da2798e75f93714edb1 *TODO
-bb3e1638f642ad8ad80eed362b780bd7 *build/partial.rdb
+1cfa29e455d6cc9865af67f6aa50593c *build/partial.rdb
 8abb7da3395b4061a9a474e6b6c19723 *inst/REFERENCES.bib
 267ce306dbd5268081eb16a86801c088 *inst/bib/00README.org
 6e9093183140cbce538d76fc7a7c9aef *inst/bib/AugBadBroZit2009hv.bib
@@ -146,7 +146,7 @@ c56071425942f327916b5843c2119ede *src/medin.c
 03804f30424bce58d1cceaf29b680181 *src/modsout.c
 7db91e64ddbde55187fbe9c52f51fd17 *src/modstypes.c
 b75e58241abe61b207057e3cfe8af274 *src/modstypes.h
-1e06b47a582ba40a198fff16039eeede *src/name.c
+bf6dd36c3e6bf4c236f3caf21f26a00e *src/name.c
 960088859670314cea8bd0fb8e40a182 *src/name.h
 663e7b0c95877816b161e442daa175ad *src/nbibin.c
 5b1448fc6bdeb5eb95ec06f0cf1b0174 *src/nbibout.c

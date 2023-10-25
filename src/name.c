@@ -373,13 +373,14 @@ name_mutlielement_build( str *name, intlist *given, intlist *family, slist *toke
 			 switch(ch) {
 			 case 'O':
 			 case 'o':
+			 case 'L':
+			 case 'l':
 			      str_addchar( name, *pastslash );
 			      pastslash++;
 			      break;
 			 case 'H':
 			 case 'c':
 			 case 'k':
-			 case 'l':
 			 case 'b':
 			 case 'd':
 			 case 'r':
@@ -449,7 +450,7 @@ name_mutlielement_build( str *name, intlist *given, intlist *family, slist *toke
 			      break;
 
 			 default: 
-			      str_addchar( name, *pastslash );
+  			      str_addchar( name, *pastslash );
 			      str_addchar( name, *(pastslash + 1));
 			      pastslash+=2;
 			 }
@@ -502,13 +503,14 @@ name_fix_latex_escapes( str *name ) {
 			 switch(ch) {
 			 case 'O':
 			 case 'o':
+			 case 'L':
+			 case 'l':
 			      str_addchar( name, *pastslash );
 			      pastslash++;
 			      break;
 			 case 'H':
 			 case 'c':
 			 case 'k':
-			 case 'l':
 			 case 'b':
 			 case 'd':
 			 case 'r':
