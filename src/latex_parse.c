@@ -72,7 +72,9 @@ build_latex_graph_r( str *in, unsigned long *offset, int *mathmode, int depth, l
 	int status = BIBL_OK;
 	latex_edge *newedge;
 	char *p;
-
+// testing
+// REprintf( "build_latex_graph_r: '%s'\n", str_cstr( in ) );
+ 
 	newnode = latex_node_new();
 	if ( !newnode ) return BIBL_ERR_MEMERR;
 
@@ -176,6 +178,8 @@ build_latex_graph( str *in, latex_node **start )
 	// //     Commenting out. TODO: this is dangerous if I am missing something!!!
 	// n = latex_node_new();
 	// if ( !n ) return BIBL_ERR_MEMERR;
+	//
+	// REprintf( "build_latex_graph: '%s'\n", str_cstr( in ) );
 	
 	return build_latex_graph_r( in, &offset, &mathmode, 0, start );
 }
@@ -348,6 +352,7 @@ latex_parse( str *in, str *out )
 {
 	latex_node *n;
 	int status;
+	// REprintf( "latex_parse: '%s'\n", str_cstr( in ) );
 
 	str_empty( out );
 	if ( str_is_empty( in ) ) return BIBL_OK;
@@ -408,3 +413,4 @@ out:
 	str_free( &tok );
 	return status;
 }
+
